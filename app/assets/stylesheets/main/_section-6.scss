@@ -1,0 +1,247 @@
+.library-section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-bottom: 56px;
+  height: 998px;
+  background-color: #fcfcfc;
+  overflow: hidden;
+
+  @media (max-width: 1199px) {
+    height: 898px;
+    padding-bottom: 36px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 26px;
+  }
+  & .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    @media (max-width: 991px) {
+      padding-top: 40px;
+      justify-content: flex-start;
+    }
+  }
+  > span {
+    display: block;
+    font-size: 25px;
+    line-height: 140%;
+    text-align: center;
+    padding: 0 20px;
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.library-bg {
+  position: absolute;
+  z-index: -1;
+  right: -42px;
+  top: -127px;
+  width: 1119px;
+  height: 1119px;
+  @media (max-width: 1375px) {
+    right: -145px;
+  }
+  @media (max-width: 1199px) {
+    top: -140px;
+    right: -35%;
+  }
+  @media (max-width: 767px) {
+    top: -10px;
+    right: -50%;
+  }
+  & img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  & .library-items {
+    position: absolute;
+    top: 9%;
+    left: 10%;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+    & div {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      animation-name: derotate;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      transform-origin: 50% 50%;
+      border: 1px solid #f3f3f3;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725),
+        0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+      & span {
+        display: block;
+        & picture {
+          width: 100%;
+          height: auto;
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+      &.centra {
+        top: 125px;
+        right: 566px;
+        width: 120px;
+        height: 120px;
+        padding: 0 20px;
+        & span {
+          & picture {
+            & img {
+              padding: 0 27px;
+            }
+          }
+        }
+      }
+      &.ms {
+        top: 110px;
+        right: 177px;
+        width: 150px;
+        height: 150px;
+        & span {
+          & picture {
+            & img {
+              padding: 0 21px;
+            }
+          }
+        }
+      }
+      &.shopify {
+        top: 348px;
+        right: 175px;
+        width: 120px;
+        height: 120px;
+        & span {
+          & picture {
+            & img {
+              padding: 0 22px;
+            }
+          }
+        }
+      }
+      &.madden {
+        top: 546px;
+        right: 543px;
+        width: 120px;
+        height: 120px;
+        & span {
+          & picture {
+            & img {
+              padding: 0 5px;
+            }
+          }
+        }
+      }
+      &.b-come {
+        top: 547px;
+        right: 235px;
+        width: 100px;
+        height: 100px;
+        & span {
+          & picture {
+            & img {
+              padding: 0 20px;
+            }
+          }
+        }
+      }
+      &.sap {
+        top: 710px;
+        right: 367px;
+        width: 120px;
+        height: 120px;
+        & span {
+          & picture {
+            & img {
+              padding: 0 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// @keyframes rotate {
+//   from {
+//     transform: rotate(0deg) translateX(200px);
+//   }
+//   to {
+//     transform: rotate(360deg) translateX(200px);
+//   }
+// }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes derotate {
+  from {
+    transform: rotate(0) translateX(0);
+  }
+  to {
+    transform: rotate(-360deg) translateX(0);
+  }
+}
+
+.library-inner {
+  width: 100%;
+  max-width: 540px;
+  @media (max-width: 1199px) {
+    max-width: 400px;
+  }
+  & p {
+    margin: 0;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 39px;
+    line-height: 45px;
+    @media (max-width: 1199px) {
+      font-size: 31px;
+      line-height: 40px;
+    }
+    @media (max-width: 767px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+  & a {
+    max-width: 174px;
+    color: $white;
+  }
+}

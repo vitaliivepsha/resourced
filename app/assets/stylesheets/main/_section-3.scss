@@ -1,0 +1,221 @@
+.idea-section {
+  padding-top: 52px;
+  padding-bottom: 79px;
+  @media (max-width: 767px) {
+    padding-bottom: 40px;
+  }
+}
+
+.idea-top {
+  & h2 {
+    margin: 0;
+    margin-bottom: 9px;
+    font-weight: 500;
+    font-size: 39px;
+    line-height: 45px;
+    text-align: center;
+    color: $black;
+    @media (max-width: 991px) {
+      font-size: 31px;
+      line-height: 38px;
+    }
+    @media (max-width: 767px) {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+
+  & span {
+    display: block;
+    margin-bottom: 47px;
+    font-size: 25px;
+    line-height: 140%;
+    text-align: center;
+    @media (max-width: 991px) {
+      font-size: 21px;
+    }
+    @media (max-width: 767px) {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+  }
+}
+
+.idea-slider-path {
+  position: relative;
+  margin-bottom: 32px;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: -1;
+    background-color: #e8e8e8;
+  }
+
+  & .slick-current {
+    & .slide {
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $accent;
+      }
+      @media (max-width: 991px) {
+        &::before {
+          display: block;
+        }
+      }
+    }
+  }
+
+  & .slide {
+    position: relative;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 21px;
+    &::before {
+      content: "";
+      position: absolute;
+      right: -27px;
+      top: 58px;
+      width: 48px;
+      height: 12px;
+      background-image: url("../images/icons/long-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 48px 12px;
+      @media (max-width: 1199px) {
+        right: -10px;
+      }
+      @media (max-width: 991px) {
+        display: none;
+      }
+      @media (max-width: 574px) {
+        right: 55px;
+      }
+      @media (max-width: 380px) {
+        right: 20px;
+      }
+    }
+    &.slide-last {
+      &::before {
+        display: none;
+      }
+    }
+    & .slide-pic {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      margin-bottom: 20px;
+      & img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    & .slide-name {
+      font-family: $Montserrat;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      text-align: center;
+      color: $black;
+    }
+  }
+}
+
+.idea-slider-step {
+  & .slide {
+    display: flex !important;
+    justify-content: space-between;
+    @media (max-width: 991px) {
+      flex-wrap: wrap;
+    }
+
+    & .slick-track {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    & .slide-about {
+      flex-shrink: 0;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 362px;
+      @media (max-width: 992px) {
+        order: 1;
+        max-width: 100%;
+        padding-top: 30px;
+      }
+      & span {
+        display: block;
+        margin-bottom: 16px;
+        font-weight: 500;
+        font-size: 31px;
+        line-height: 36px;
+        color: $black;
+        @media (max-width: 767px) {
+          margin-bottom: 10px;
+          font-size: 26px;
+          line-height: 38px;
+        }
+      }
+      & p {
+        max-width: 349px;
+        margin: 0;
+        margin-bottom: 30px;
+        font-family: $Montserrat;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: $black;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @media (max-width: 992px) {
+          max-width: 100%;
+          margin-bottom: 20px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    & .slide-pic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      margin-left: 20px;
+      @media (max-width: 991px) {
+        margin-left: 0;
+      }
+      & picture {
+        width: 100%;
+        height: 100%;
+      }
+      & img {
+        max-width: 100%;
+        height: auto;
+      }
+      & svg {
+        max-width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
