@@ -252,6 +252,9 @@
       cursor: grab;
       i{
         display: none;
+        &:first-child{
+          display: none;
+        }
       }
     }
     .irs-line{
