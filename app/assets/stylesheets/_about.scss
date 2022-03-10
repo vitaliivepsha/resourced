@@ -175,14 +175,16 @@
 
 .member-pic {
   margin-bottom: 16px;
+  border-radius: 50%;
+  overflow: hidden;
   @media (max-width: 390px) {
     margin-bottom: 10px;
   }
   & a:hover {
     &::before {
       opacity: 1;
-      background: rgba(#713cd0, 0.6);
-      filter: brightness(60%);
+      background: #713cd0;
+      mix-blend-mode: multiply;
     }
     & span {
       opacity: 1;
