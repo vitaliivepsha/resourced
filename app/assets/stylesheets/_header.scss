@@ -10,6 +10,71 @@
   &.fixed {
     background: $blue;
   }
+  &__pricing{
+    background-color: #fff;
+    .header-main-nav{
+      li{
+        &.has-children{
+          >a{
+            &:after{
+              border-top-color: $accent-dark;
+            }
+          }
+        }
+      }
+      a{
+        color: $accent-dark;
+        &:hover{
+          &:before{
+            background: $accent-dark;
+          }
+        }
+      }
+    }
+    .header-main-control{
+      a{
+        color: $accent-dark;
+        border-color: $accent-dark;
+        &:hover{
+          border-color: $accent;
+          background-color: $accent;
+          color: #fff;
+        }
+      }
+    }
+    &.fixed {
+      .header-main-nav{
+        li{
+          &.has-children{
+            >a{
+              &:after{
+                border-top-color: #fff;
+              }
+            }
+          }
+        }
+        a{
+          color: #fff;
+          &:hover{
+            &:before{
+              background: #fff;
+            }
+          }
+        }
+      }
+      .header-main-control{
+        a{
+          color: #fff;
+          border-color: #fff;
+          &:hover{
+            border-color: $accent;
+            background-color: $accent;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }
 
 .header-main {
