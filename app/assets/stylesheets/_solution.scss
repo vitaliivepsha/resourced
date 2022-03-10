@@ -238,6 +238,26 @@
   }
 }
 
+// &:nth-of-type(even) {
+//     & .pic {
+//       order: 1;
+//     }
+//     & .text {
+//       & span {
+//         text-align: right;
+//         @media (max-width: 574px) {
+//           text-align: left;
+//         }
+//       }
+//       & p {
+//         text-align: right;
+//         @media (max-width: 574px) {
+//           text-align: left;
+//         }
+//       }
+//     }
+//   }
+
 .solution-complete-item {
   display: flex;
   align-items: center;
@@ -249,25 +269,7 @@
   @media (max-width: 574px) {
     display: block;
   }
-  &:nth-child(even) {
-    & .pic {
-      order: 1;
-    }
-    & .text {
-      & span {
-        text-align: right;
-        @media (max-width: 574px) {
-          text-align: left;
-        }
-      }
-      & p {
-        text-align: right;
-        @media (max-width: 574px) {
-          text-align: left;
-        }
-      }
-    }
-  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -316,15 +318,65 @@
   }
 }
 
+.solution-complete-items:nth-of-type(1) {
+  & .solution-complete-item {
+    &:nth-child(2) {
+      & .pic {
+        order: 1;
+      }
+      & .text {
+        & span {
+          text-align: right;
+          @media (max-width: 574px) {
+            text-align: left;
+          }
+        }
+        & p {
+          text-align: right;
+          @media (max-width: 574px) {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+.solution-complete-items ~ .solution-complete-items {
+  & .solution-complete-item {
+    &:nth-child(odd) {
+      & .pic {
+        order: 1;
+      }
+      & .text {
+        & span {
+          text-align: right;
+          @media (max-width: 574px) {
+            text-align: left;
+          }
+        }
+        & p {
+          text-align: right;
+          @media (max-width: 574px) {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
 .solution-started {
+  margin-top: 64px;
   margin-bottom: 64px;
   padding: 64px 15px;
   background-color: #f8f7fa;
   border-radius: 0 40px 0 40px;
 
   @media (max-width: 767px) {
-    padding: 40px 15px;
+    margin-top: 40px;
     margin-bottom: 40px;
+    padding: 40px 15px;
   }
   & span {
     display: block;
