@@ -1,5 +1,9 @@
 .pricing-main{
   padding-top: 124px;
+  overflow: hidden;
+  @include bp(xs) {
+    padding-top: 95px;
+  }
 }
 
 .pricing-main__title{
@@ -10,6 +14,11 @@
   font-size: 36px;
   line-height: 44px;
   font-weight: 400;
+  @include bp(xs) {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 12px;
+  }
 }
 
 .pricing-main__descr{
@@ -20,6 +29,11 @@
   line-height: 29px;
   text-align: center;
   margin-bottom: 60px;
+  @include bp(xs) {
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 30px;
+  }
 }
 
 .pricing-plans{
@@ -27,6 +41,9 @@
   flex-wrap: wrap;
   .col-lg-3{
     height: inherit;
+    @include bp(md) {
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -188,6 +205,9 @@
 .pricing-main__bot{
   position: relative;
   padding: 95px 0;
+  @include bp(xs) {
+    padding-bottom: 60px;
+  }
   &:before{
     position: absolute;
     content: '';
@@ -215,6 +235,13 @@
   width: calc(100% - 586px);
   padding-left: 30px;
   color: #fff;
+  @include bp(md) {
+    width: 100%;
+    padding: 0 0 70px;
+  }
+  @include bp(xs) {
+    padding-bottom: 40px;
+  }
 }
 
 .pricing-range__title{
@@ -223,6 +250,11 @@
   font-weight: 500;
   font-size: 31px;
   line-height: 36px;
+  @include bp(xs) {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 12px;
+  }
 }
 
 .pricing-range__descr{
@@ -230,13 +262,26 @@
   font-weight: 300;
   font-size: 24px;
   line-height: 150%;
+  @include bp(xs) {
+    font-size: 20px;
+  }
 }
 
 .pricing-range__right{
   width: 586px;
   padding: 0 22px;
+  @include bp(md) {
+    width: 100%;
+    padding: 0 60px;
+  }
+  @include bp(xs) {
+    padding: 0 22px;
+  }
   .irs--flat{
     height: 88px;
+    @include bp(xs) {
+      height: 70px;
+    }
     .irs-bar{
       height: 6px;
       border-radius: 20px 0 0 20px;
@@ -279,6 +324,14 @@
       padding: 1px 15px;
       top: -32px;
       cursor: grab;
+      @include bp(xs) {
+        width: 86px;
+        height: 26px;
+        font-size: 8px;
+        line-height: 11px;
+        top: -16px;
+        padding: 3px;
+      }
       &:before{
         border-top: 5px solid #4717AA;
         border-left: 11px solid transparent;
@@ -295,6 +348,9 @@
 
 .pricing-features{
   padding: 45px 0 50px;
+  @include bp(xs) {
+    padding: 30px 0;
+  }
 }
 
 .pricing-features__title{
@@ -305,11 +361,20 @@
   line-height: 45px;
   margin-bottom: 33px;
   color: $accent-dark;
+  @include bp(xs) {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 15px;
+  }
 }
 
 .pricing-features__items{
   display: flex;
   justify-content: space-evenly;
+  @include bp(xs) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .pricing-features__item{
@@ -317,6 +382,9 @@
   color: #000;
   font-weight: 400;
   margin-bottom: 40px;
+  @include bp(xs) {
+    margin-bottom: 20px;
+  }
   >div{
     height: 74px;
     display: flex;
@@ -330,6 +398,9 @@
     margin-bottom: 24px;
     font-size: 25px;
     line-height: 140%;
+    @include bp(xs) {
+      margin-bottom: 10px;
+    }
   }
   >p{
     margin-bottom: 0;
@@ -344,6 +415,10 @@
   position: relative;
   height: 505px;
   overflow: hidden;
+  @include bp(xs) {
+    margin-top: 40px;
+    height: 460px;
+  }
   &.active{
     height: auto;
     &:before{
@@ -365,14 +440,32 @@
     bottom: 0;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 75.52%);
     z-index: 1;
+    @include bp(xs) {
+      height: 190px;
+    }
   }
   .pricing-features__title{
     margin-bottom: 64px;
+    @include bp(xs) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.pricing-features__table-inner{
+  @include bp(md) {
+    overflow: auto;
   }
 }
 
 .pricing-features__table{
   margin-bottom: 25px;
+  @include bp(md) {
+    min-width: 1110px;
+  }
+  @include bp(xs) {
+    min-width: 900px;
+  }
 }
 
 .pricing-features__table-head{
@@ -380,30 +473,51 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 140%;
+  @include bp(xs) {
+    font-size: 18px;
+  }
   >div{
     padding: 0 10px 16px;
     text-align: center;
+    @include bp(xs) {
+      text-align: left;
+    }
     &.usage{
       width: 383px;
       padding-left: 0;
       text-align: left;
       color: #000;
+      @include bp(xs) {
+        width: 240px;
+      }
     }
     &.free{
       width: 187px;
       color: $accent-dark;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     &.startup{
       width: 191px;
       color: #65CED6;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     &.growth{
       width: 189px;
       color: #2576BC;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     &.scale_up{
       width: 173px;
       color: $lawender2;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
   }
 }
@@ -416,25 +530,46 @@
   color: $accent-dark;
   font-family: $Montserrat;
   border-bottom: 1px solid #C4C4C4;
+  @include bp(xs) {
+    font-size: 14px;
+  }
   >div{
     padding: 8px 10px;
     text-align: center;
+    @include bp(xs) {
+      text-align: left;
+    }
     &.usage{
       width: 383px;
       padding-left: 0;
       text-align: left;
+      @include bp(xs) {
+        width: 240px;
+      }
     }
     &.free{
       width: 187px;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     &.startup{
       width: 191px;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     &.growth{
       width: 189px;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     &.scale_up{
       width: 173px;
+      @include bp(xs) {
+        width: 160px;
+      }
     }
     >svg{
       margin: 0 auto;
@@ -443,6 +578,9 @@
       color: #2576BC;
       font-size: 14px;
       text-decoration: underline;
+      @include bp(xs) {
+        font-size: 12px;
+      }
       &:hover{
         text-decoration: none;
       }
@@ -451,15 +589,17 @@
       position: relative;
       cursor: pointer;
       >span{
-        display: flex;
-        align-items: center;
+        display: inline-block;
         svg{
-          margin-left: 6px;
           min-width: 16px;
+          position: relative;
+          top: 3px;
         }
         >small{
           font-size: 14px;
-          margin-left: 4px;
+          @include bp(xs) {
+            font-size: 12px;
+          }
         }
       }
       >div{
@@ -471,6 +611,7 @@
         visibility: hidden;
         transition: linear .2s;
         width: 400px;
+        max-width: calc(100vw - 30px);
         border: 1px solid $accent;
         padding: 15px;
         background-color: #fff;
@@ -481,6 +622,10 @@
         line-height: 150%;
         color: #000;
         font-weight: 400;
+        @include bp(xs) {
+          font-size: 10px;
+          padding: 10px;
+        }
       }
       &:hover{
         >div{
@@ -496,13 +641,22 @@
 .pricing-features__table-footer{
   display: flex;
   margin-top: -25px;
+  @include bp(md) {
+    min-width: 1110px;
+  }
   >div{
     padding: 16px 10px 0;
     text-align: center;
+    @include bp(xs) {
+      text-align: left;
+    }
     span{
       font-weight: 500;
       font-size: 20px;
       line-height: 140%;
+      @include bp(xs) {
+        font-size: 18px;
+      }
     }
     .btn{
       width: 155px;
@@ -511,13 +665,23 @@
       border-radius: 30px;
       margin: 16px auto 0;
       background-color: transparent;
+      @include bp(xs) {
+        margin-left: 0;
+        width: 140px;
+      }
     }
     &.usage{
       width: 383px;
+      @include bp(xs) {
+        width: 240px;
+      }
     }
     &.free{
       width: 187px;
       color: $accent-dark;
+      @include bp(xs) {
+        width: 160px;
+      }
       .btn{
         border-color: $accent-dark;
         color: $accent-dark !important;
@@ -530,6 +694,9 @@
     &.startup{
       width: 191px;
       color: #65CED6;
+      @include bp(xs) {
+        width: 160px;
+      }
       .btn{
         border-color: #65CED6;
         color: #65CED6 !important;
@@ -542,6 +709,9 @@
     &.growth{
       width: 189px;
       color: #2576BC;
+      @include bp(xs) {
+        width: 160px;
+      }
       .btn{
         border-color: #51A4E4;
         color: #51A4E4 !important;
@@ -554,6 +724,9 @@
     &.scale_up{
       width: 173px;
       color: $lawender2;
+      @include bp(xs) {
+        width: 160px;
+      }
       .btn{
         border-color: $lawender2;
         color: $lawender2 !important;
@@ -590,6 +763,9 @@
 
 .pricing-needs{
   padding: 50px 0;
+  @include bp(xs) {
+    padding: 10px 0 30px;
+  }
 }
 
 .pricing-needs__title{
@@ -599,6 +775,10 @@
   line-height: 45px;
   text-align: center;
   margin-bottom: 3px;
+  @include bp(xs) {
+    font-size: 26px;
+    line-height: 32px;
+  }
 }
 
 .pricing-needs__descr{
@@ -607,36 +787,62 @@
   font-size: 25px;
   line-height: 140%;
   text-align: center;
+  @include bp(xs) {
+    font-size: 20px;
+  }
 }
 
 .pricing-needs__wrapper{
   display: flex;
   background-color: #fff;
   border-radius: 16px;
-  border: 1px solid #F3F3F3;
-  box-sizing: border-box;
   box-shadow: 0 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08);
   height: 295px;
   overflow: hidden;
+  @include bp(md) {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 .pricing-needs__txt{
   width: calc(100% - 511px);
   padding: 64px 10px 64px 64px;
+  @include bp(lg) {
+    padding: 30px 0 30px 30px;
+  }
+  @include bp(md) {
+    width: 100%;
+    padding: 40px 60px;
+    text-align: center;
+  }
+  @include bp(xs) {
+    padding: 20px 15px;
+  }
   >span{
     display: block;
     font-weight: 500;
     font-size: 39px;
     line-height: 45px;
+    @include bp(xs) {
+      font-size: 30px;
+      line-height: 36px;
+    }
   }
   >p{
     font-weight: 500;
     font-size: 20px;
     line-height: 140%;
     margin-bottom: 16px;
+    @include bp(xs) {
+      font-size: 18px;
+    }
   }
   .btn{
     width: 156px;
+    @include bp(md) {
+      margin: 0 auto;
+    }
   }
 }
 
@@ -644,6 +850,14 @@
   display: flex;
   width: 511px;
   height: 100%;
+  @include bp(md) {
+    width: 100%;
+    height: auto;
+  }
+  @include bp(xs) {
+    width: calc(100% + 12vw);
+    margin-left: -12vw;
+  }
   img{
     width: 100%;
     height: 100%;
@@ -653,6 +867,9 @@
 
 .pricing-faq{
   padding: 50px 0 60px;
+  @include bp(xs) {
+    padding: 30px 0;
+  }
 }
 
 .pricing-faq__title{
@@ -662,6 +879,11 @@
   line-height: 45px;
   text-align: center;
   margin-bottom: 64px;
+  @include bp(xs) {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
 }
 
 .pricing-faq__wrapper{
@@ -681,9 +903,13 @@
   font-size: 25px;
   line-height: 140%;
   background-color: #F8F7FA;
-  height: 64px;
   min-height: 64px;
   border-radius: 0 40px 0 40px;
+  @include bp(xs) {
+    padding: 12px 62px 12px 20px;
+    font-size: 18px;
+    border-radius: 0 26px 0 26px;
+  }
   >svg{
     transition: linear .2s;
     position: absolute;
@@ -711,6 +937,10 @@
   line-height: 150%;
   font-family: $Montserrat;
   color: #000;
+  @include bp(xs) {
+    font-size: 13px;
+    padding: 16px 0;
+  }
   p{
     margin-bottom: 16px;
   }
@@ -723,6 +953,12 @@
 
 .pricing-partners {
   padding: 60px 0 200px;
+  @include bp(md) {
+    padding-bottom: 100px;
+  }
+  @include bp(xs) {
+    padding: 30px 0 60px;
+  }
 }
 
 .pricing-partners__title{
@@ -732,6 +968,11 @@
   line-height: 45px;
   text-align: center;
   margin-bottom: 48px;
+  @include bp(xs) {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
 }
 
 .pricing-partners__wrapper{
@@ -739,6 +980,9 @@
   flex-wrap: wrap;
   position: relative;
   margin-bottom: 72px;
+  @include bp(xs) {
+    margin-bottom: 50px;
+  }
   &:before{
     position: absolute;
     content: '';
@@ -766,6 +1010,14 @@
     width: 25%;
     border-right: 1px solid #C4C4C4;
     border-bottom: 1px solid #C4C4C4;
+    @include bp(sm) {
+      width: 33.33333%;
+    }
+    @include bp(xs) {
+      width: 50%;
+      padding: 20px;
+      height: calc(40vw - 15px);
+    }
     img{
       max-width: 100%;
       object-fit: contain;
@@ -776,6 +1028,9 @@
 .pricing-partners__subscribe{
   display: flex;
   align-items: center;
+  @include bp(md) {
+    flex-direction: column;
+  }
 }
 
 .pricing-partners__subscribe-txt{
@@ -785,25 +1040,47 @@
   font-size: 25px;
   line-height: 140%;
   color: #000;
+  @include bp(md) {
+    padding: 0;
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  @include bp(xs) {
+    font-size: 18px;
+  }
 }
 
 .pricing-partners__subscribe-form{
   width: 50%;
   padding-left: 30px;
+  @include bp(md) {
+    width: 100%;
+    padding: 0;
+  }
   form{
-    border: 1px solid #C4C4C4;
-    border-radius: 38px;
     position: relative;
+    @include bp(md) {
+      width: 450px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
     input{
       width: 100%;
-      height: 40px;
+      height: 42px;
       padding-left: 20px;
       padding-right: 166px;
       font-weight: 500;
       font-size: 20px;
       line-height: 140%;
-      border: none;
       background-color: transparent;
+      border: 1px solid #C4C4C4;
+      border-radius: 38px;
+      @include bp(xs) {
+        padding-right: 130px;
+        padding-left: 15px;
+        font-size: 16px;
+      }
       &::placeholder{
         color: $lawender2;
       }
@@ -818,6 +1095,9 @@
       right: 0;
       top: 0;
       width: 156px;
+      @include bp(xs) {
+        width: 120px;
+      }
     }
   }
 }

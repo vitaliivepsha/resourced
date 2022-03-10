@@ -42,6 +42,14 @@
         }
       }
     }
+    .mobile-btn{
+      span{
+        background: $accent-dark;
+        &:before, &:after{
+          background: $accent-dark;
+        }
+      }
+    }
     &.fixed {
       .header-main-nav{
         li{
@@ -70,6 +78,19 @@
             border-color: $accent;
             background-color: $accent;
             color: #fff;
+          }
+        }
+      }
+      .mobile-btn{
+        span{
+          background: #fff;
+          &:before, &:after{
+            background: #fff;
+          }
+        }
+        &.active{
+          span{
+            background: none;
           }
         }
       }
