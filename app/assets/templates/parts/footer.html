@@ -73,8 +73,60 @@
         </div>
       </div>
     </div>
+  </div>
 </footer>
 
-<div class="overlay"></div>
 <div class="mfp-hide">
+    <div class="signup-popup" id="signup-popup">
+        <button title="Close (Esc)" type="button" class="mfp-close">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 0.785797L1 9.94557" stroke="#DFDFDF"/>
+                <path d="M11.011 9.93563L0.989281 0.795776" stroke="#DFDFDF"/>
+            </svg>
+        </button>
+        <span class="signup-popup__title">We´re soon there!</span>
+        <span class="signup-popup__subtitle">just making some final touches</span>
+        <div class="signup-popup__descr">
+            <p>We will gradually let new brands in to ensure a good onboarding.</p>
+            <p>To get access please let us your details below and we´ll get in touch</p>
+        </div>
+        <div class="signup-popup__main">
+            <div class="signup-popup__left">
+                <div class="signup-popup__info">
+                    <div class="signup-popup__img">
+                        <picture>
+                            <source srcset="../../images/pixel.webp" data-original="../../images/popup-pic.webp"
+                                    class="lazy-web" type="image/webp">
+                            <source srcset="../../images/pixel.png" data-original="../../images/popup-pic.png"
+                                    class="lazy-web" type="image/png">
+                            <img src="../../images/pixel.png" data-original="../../images/popup-pic.png" class="lazy"
+                                 alt="">
+                        </picture>
+                    </div>
+                    <span class="signup-popup__info-text">Ready to fall in love with picking colors?</span>
+                </div>
+            </div>
+            <form class="signup-popup__form ajax_form" data-error-title="Error!"
+                  data-error-message="Try again later"
+                  data-success-title="Thank you!"
+                  data-success-message="We´ll get back to you with an update shortly">
+                <div class="signup-popup__form-inner">
+                    <div class="input-wrapper">
+                        <label>Your Name</label>
+                        <input class="input" name="name" placeholder="Elias Gröndal" data-title="Name" data-validate-required="Required!">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Work email</label>
+                        <input class="input" name="email" placeholder="elias@resourced.com" data-title="Email" data-validate-required="Required!" data-validate-email="Please use valid e-mail adress">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Phone number</label>
+                        <input class="input" name="phone" placeholder="Resourced" data-title="Phone" data-validate-required="Required!">
+                    </div>
+                    <button type="submit">Sign me up</button>
+                </div>
+            </form>
+        </div>
+        <div class="signup-popup__footnote">By pressing “Sign me up” you agree to our <a href="javascript:void(0)">terms & conditions</a></div>
+    </div>
 </div>

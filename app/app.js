@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/solution.html');
     require('./assets/templates/layouts/about.html');
     require('./assets/templates/layouts/pricing.html');
+    require('./assets/templates/layouts/contact.html');
 
 }
 
@@ -105,11 +106,13 @@ $(function () {
     $(document).on("click", ".mobile-btn", function (e) {
         e.stopPropagation();
     });
-    $(document).on("click", ".mobile-menu", function (e) {
+    $(document).on("click", ".mobile-menu__wrapper", function (e) {
         e.stopPropagation();
     });
 
-
+    $('.mobile-menu .has-children > span').click(function () {
+        $(this).closest('.has-children').toggleClass('open').find('.submenu').slideToggle();
+    });
 
     //     // custom slider navigation
 
@@ -180,6 +183,12 @@ $(function () {
 
     $('.select').SumoSelect({
         forceCustomRendering: true
+    });
+
+    $('.select').on('change', function (){
+        var val = $(this).find('option:selected', this);
+        $(this).closest('.select-wrapper').removeClass('err').find('.validate-error').remove();
+        $(this).closest('.select-wrapper').find('input:hidden').val(val);
     });
 
     //   $('.video__inner').on('click', function(e) {

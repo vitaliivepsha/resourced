@@ -24,38 +24,14 @@ body {
   &.swal2-shown {
     position: static;
   }
-  // &.login-menu__show {
-  //   main, footer{
-  //     -webkit-filter: blur(3px);
-  //     filter: blur(3px);
-  //   }
-  //   .overlay {
-  //     opacity: 1;
-  //     z-index: 10;
-  //   }
-  //   .header-login__menu {
-  //     z-index: 1;
-  //     visibility: visible;
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-  // }
-  // &.menu-opened {
-  //   main, footer{
-  //     -webkit-filter: blur(3px);
-  //     filter: blur(3px);
-  //   }
-  //   .overlay {
-  //     opacity: 1;
-  //     z-index: 10;
-  //   }
-  //   .mobile-menu__wrapper {
-  //     z-index: 1;
-  //     visibility: visible;
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-  // }
+   &.menu-opened {
+     height: 100vh;
+     overflow: hidden;
+     .mobile-menu__wrapper {
+       visibility: visible;
+       opacity: 1;
+     }
+   }
 }
 
 ol,
@@ -219,3 +195,4 @@ textarea {
 
 @import "about";
 @import "pricing";
+@import "contact";
