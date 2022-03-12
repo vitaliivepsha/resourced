@@ -48,6 +48,22 @@ $(function () {
         $('body').trigger('scroll');
     }, 100);
 
+    // scroll to id
+
+    $(document).on('click', 'a[href^="#"]', function(e) {
+        var id = $(this).attr('href');
+        var $id = $(id);
+        if ($id.length === 0) {
+            return;
+        }
+        e.preventDefault();
+        var pos = $id.offset().top - 30;
+        $('body, html').animate({ scrollTop: pos }, 500);
+    });
+    $(document).on('click', 'a[href^="#"]', function(e) {
+        e.preventDefault();
+    });
+
     // lazy load
     var lazyload = function () {
         var scroll = $(window).scrollTop() + $(window).height() * 3;
@@ -250,16 +266,5 @@ $(function () {
 
     $('.pricing-faq__head').click(function () {
         $(this).toggleClass('active').next('.pricing-faq__body').slideToggle();
-    });
-
-    // scroll to id
-
-    $("a[href*=#]").on("click", function (e) {
-        var anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $(anchor.attr('href')).offset().top
-        }, 777);
-        e.preventDefault();
-        return false;
     });
 });

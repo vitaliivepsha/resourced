@@ -12765,7 +12765,7 @@ var vendor_lib =
 	          if (typeof button.data('sending') !== 'undefined') {
 	            var text = button.data('sending');
 	          } else {
-	            var text = 'Отправляем...';
+	            var text = 'Sending...';
 	          }
 	          button.html(text);
 	        },
@@ -12788,7 +12788,7 @@ var vendor_lib =
 	          if (typeof button.data('sent') !== 'undefined') {
 	            var text = button.data('sent');
 	          } else {
-	            var text = 'Отправлено';
+	            var text = 'Sent';
 	          }
 	          button.html(text);
 
@@ -12827,7 +12827,7 @@ var vendor_lib =
 	          if (typeof button.data('error') !== 'undefined') {
 	            var text = button.data('error');
 	          } else {
-	            var text = 'Не вышло :(';
+	            var text = 'Error :(';
 	          }
 	          button.html(text);
 	          form.trigger('error', response);
