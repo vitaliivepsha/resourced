@@ -7,6 +7,8 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/solution.html');
     require('./assets/templates/layouts/about.html');
     require('./assets/templates/layouts/pricing.html');
+    require('./assets/templates/layouts/policy.html');
+    require('./assets/templates/layouts/terms.html');
 
 }
 
@@ -388,7 +390,21 @@ $(function () {
     $('.pricing-faq__head').click(function () {
         $(this).toggleClass('active').next('.pricing-faq__body').slideToggle();
     });
+
 });
+
+$("a[href*=#]").on("click", function (e) {
+    var anchor = $(this);
+    $('html, body').stop().animate({
+        scrollTop: $(anchor.attr('href')).offset().top
+    }, 777);
+    e.preventDefault();
+    return false;
+});
+
+
+
+
 
 
 //$('.phone').mask('+38(999)-99-99-999');
