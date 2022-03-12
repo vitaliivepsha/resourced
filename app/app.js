@@ -8,6 +8,8 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/about.html');
     require('./assets/templates/layouts/pricing.html');
     require('./assets/templates/layouts/contact.html');
+    require('./assets/templates/layouts/policy.html');
+    require('./assets/templates/layouts/terms.html');
 
 }
 
@@ -106,13 +108,11 @@ $(function () {
     $(document).on("click", ".mobile-btn", function (e) {
         e.stopPropagation();
     });
-    $(document).on("click", ".mobile-menu__wrapper", function (e) {
+    $(document).on("click", ".mobile-menu", function (e) {
         e.stopPropagation();
     });
 
-    $('.mobile-menu .has-children > span').click(function () {
-        $(this).closest('.has-children').toggleClass('open').find('.submenu').slideToggle();
-    });
+
 
     //     // custom slider navigation
 
@@ -397,7 +397,21 @@ $(function () {
     $('.pricing-faq__head').click(function () {
         $(this).toggleClass('active').next('.pricing-faq__body').slideToggle();
     });
+
 });
+
+$("a[href*=#]").on("click", function (e) {
+    var anchor = $(this);
+    $('html, body').stop().animate({
+        scrollTop: $(anchor.attr('href')).offset().top
+    }, 777);
+    e.preventDefault();
+    return false;
+});
+
+
+
+
 
 
 //$('.phone').mask('+38(999)-99-99-999');
