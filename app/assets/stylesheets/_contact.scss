@@ -1,82 +1,82 @@
-.contact-main{
-  background: #2576BC;
+.contact-main {
+  background: #2576bc;
   position: relative;
   padding-top: 134px;
-  @include bp(xs){
+  @include bp(xs) {
     padding-top: 100px;
   }
 }
 
-.contact-top{
+.contact-top {
   position: relative;
   z-index: 2;
 }
 
-.contact-top__wrapper{
+.contact-top__wrapper {
   display: flex;
   position: relative;
   z-index: 1;
-  @include bp(md){
+  @include bp(md) {
     flex-direction: column;
     padding-bottom: 60px;
   }
-  @include bp(xs){
+  @include bp(xs) {
     padding-bottom: 40px;
   }
 }
 
-.contact-info{
+.contact-info {
   width: calc(100% - 410px);
   padding-right: 30px;
   padding-top: 5px;
   color: #fff;
-  @include bp(md){
+  @include bp(md) {
     width: 100%;
   }
 }
 
-.contact-title{
+.contact-title {
   display: block;
   font-weight: 500;
   font-size: 48px;
   line-height: 55px;
   margin-bottom: 8px;
-  @include bp(xs){
+  @include bp(xs) {
     font-size: 32px;
     line-height: 40px;
   }
 }
 
-.contact-descr{
+.contact-descr {
   max-width: 530px;
   font-weight: 400;
   font-size: 25px;
   line-height: 140%;
-  @include bp(xs){
+  @include bp(xs) {
     font-size: 18px;
     padding-bottom: 20px;
   }
-  p{
+  p {
     margin-bottom: 35px;
-    @include bp(xs){
+    @include bp(xs) {
       margin-bottom: 15px;
     }
   }
 }
 
-.contact-links{
+.contact-links {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  a{
+  a {
     display: block;
     width: 60px;
     margin-right: 32px;
     margin-bottom: 10px;
-    @include bp(xs){
+    @include bp(xs) {
       margin-right: 20px;
     }
-    >div{
+    > div {
       width: 60px;
       height: 60px;
       background: #fff;
@@ -86,7 +86,7 @@
       justify-content: center;
       align-items: center;
     }
-    >span{
+    > span {
       display: block;
       text-decoration: none;
       text-align: center;
@@ -97,84 +97,85 @@
       color: #fff;
       font-family: $Montserrat;
     }
-    &:hover{
-      >div{
+    &:hover {
+      > div {
         background-color: rgba(255, 255, 255, 0.04);
       }
     }
-    &:last-child{
+    &:last-child {
       margin-right: 0;
     }
   }
 }
 
-.contact-form{
+.contact-form {
   width: 410px;
   position: relative;
-  @include bp(md){
+  @include bp(md) {
     max-width: 100%;
     margin: 0 auto;
   }
-  .input-wrapper{
+  .input-wrapper {
     position: relative;
     margin-bottom: 32px;
-    &.select-wrapper{
-      svg{
+    &.select-wrapper {
+      svg {
         position: absolute;
         pointer-events: none;
         right: 14px;
         top: 12px;
         z-index: 1;
       }
-      &.err{
-        svg{
-          path{
-            fill: #FF1D1D;
+      &.err {
+        svg {
+          path {
+            fill: #ff1d1d;
           }
         }
       }
     }
-    &.err{
-      .input, .textarea{
+    &.err {
+      .input,
+      .textarea {
         border-width: 2px;
-        border-color: #FF1D1D;
-        +label{
-          color: #FF1D1D;
-          +svg{
-            path{
-              fill: #FF1D1D;
+        border-color: #ff1d1d;
+        + label {
+          color: #ff1d1d;
+          + svg {
+            path {
+              fill: #ff1d1d;
             }
           }
         }
       }
-      .SumoSelect{
-        >.CaptionCont{
+      .SumoSelect {
+        > .CaptionCont {
           border-width: 2px;
-          border-color: #FF1D1D;
+          border-color: #ff1d1d;
         }
-        +label{
-          color: #FF1D1D;
+        + label {
+          color: #ff1d1d;
         }
       }
     }
   }
-  .input{
+  .input {
     padding: 0 46px 0 16px;
     width: 100%;
     height: 48px;
     background: #fff;
-    border: 1px solid #858C94;
+    border: 1px solid #858c94;
     border-radius: 6px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     font-family: $Montserrat;
     color: rgba(9, 16, 29, 0.8);
-    &::placeholder{
+    &::placeholder {
       font-weight: 400;
       color: rgba(184, 184, 184, 0.8);
     }
-    +label{
+    + label {
       position: absolute;
       font-weight: 600;
       font-size: 13px;
@@ -186,102 +187,103 @@
       color: rgba(29, 29, 27, 0.8);
       left: 12px;
       top: -10px;
-      span{
-        color: #DA1414;
+      span {
+        color: #da1414;
       }
-      +svg{
+      + svg {
         position: absolute;
         right: 14px;
         top: 12px;
         pointer-events: none;
       }
     }
-    &:focus{
+    &:focus {
       border-color: $accent;
       border-width: 2px;
-      &::placeholder{
+      &::placeholder {
         color: transparent;
       }
-      +label{
+      + label {
         color: $accent;
-        +svg{
+        + svg {
           opacity: 1;
         }
       }
     }
   }
-  .SumoSelect{
+  .SumoSelect {
     display: flex;
     width: 100%;
     &:hover {
-      >.CaptionCont{
+      > .CaptionCont {
         box-shadow: none;
       }
     }
-    &:focus, &.open{
-      >.CaptionCont{
+    &:focus,
+    &.open {
+      > .CaptionCont {
         box-shadow: none;
         border-width: 2px;
         border-color: $accent;
       }
     }
-    &.open{
-      >.optWrapper{
+    &.open {
+      > .optWrapper {
         top: 100%;
         z-index: 10001;
       }
     }
-    >.CaptionCont{
-      border: 1px solid #858C94;
+    > .CaptionCont {
+      border: 1px solid #858c94;
       width: 100%;
       border-radius: 6px;
       height: 48px;
       display: flex;
       align-items: center;
       padding: 0 16px;
-      >span{
+      > span {
         font-weight: 600;
         font-size: 16px;
         line-height: 24px;
         font-family: $Montserrat;
         color: rgba(9, 16, 29, 0.8);
         cursor: pointer;
-        &.placeholder{
+        &.placeholder {
           font-weight: 400;
           color: rgba(184, 184, 184, 0.8);
         }
       }
-      >label{
+      > label {
         cursor: pointer;
-        i{
+        i {
           display: none;
         }
       }
     }
-    >.optWrapper{
-      border: 1px solid #858C94;
+    > .optWrapper {
+      border: 1px solid #858c94;
       border-radius: 6px;
-      &.isFloating{
+      &.isFloating {
         position: absolute;
         max-height: unset;
         top: 100%;
         bottom: auto;
         width: 100%;
       }
-      >.options{
+      > .options {
         padding: 4px 0;
-        li{
-          &.opt{
+        li {
+          &.opt {
             font-size: 16px;
             line-height: 24px;
             font-family: $Montserrat;
             color: rgba(9, 16, 29, 0.8);
             padding: 6px 16px;
             border: none;
-            &.disabled{
+            &.disabled {
               display: none;
             }
-            label{
+            label {
               font-weight: 400;
               margin-bottom: 0;
             }
@@ -289,7 +291,7 @@
         }
       }
     }
-    +label{
+    + label {
       position: absolute;
       font-weight: 600;
       font-size: 13px;
@@ -301,40 +303,40 @@
       color: rgba(29, 29, 27, 0.8);
       left: 12px;
       top: -10px;
-      span{
-        color: #DA1414;
+      span {
+        color: #da1414;
       }
     }
-    &:focus{
+    &:focus {
       border-color: $accent;
       border-width: 2px;
-      &::placeholder{
+      &::placeholder {
         color: transparent;
       }
-      +label{
+      + label {
         color: $accent;
       }
     }
   }
-  .textarea{
+  .textarea {
     display: block;
     resize: none;
     padding: 12px 16px;
     width: 100%;
     height: 148px;
     background: #fff;
-    border: 1px solid #858C94;
+    border: 1px solid #858c94;
     border-radius: 6px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     font-family: $Montserrat;
     color: rgba(9, 16, 29, 0.8);
-    &::placeholder{
+    &::placeholder {
       font-weight: 400;
       color: rgba(184, 184, 184, 0.8);
     }
-    +label{
+    + label {
       position: absolute;
       font-weight: 600;
       font-size: 13px;
@@ -346,22 +348,22 @@
       color: rgba(29, 29, 27, 0.8);
       left: 12px;
       top: -10px;
-      span{
-        color: #DA1414;
+      span {
+        color: #da1414;
       }
     }
-    &:focus{
+    &:focus {
       border-color: $accent;
       border-width: 2px;
-      &::placeholder{
+      &::placeholder {
         color: transparent;
       }
-      +label{
+      + label {
         color: $accent;
       }
     }
   }
-  .policy{
+  .policy {
     font-family: $Montserrat;
     font-weight: 400;
     font-size: 12px;
@@ -369,18 +371,18 @@
     color: #979797;
     margin-bottom: 24px;
     margin-top: -24px;
-    a{
+    a {
       color: #979797;
       text-decoration: underline;
-      &:hover{
+      &:hover {
         color: $accent;
       }
     }
   }
-  .btn{
+  .btn {
     width: 100%;
   }
-  .validate-error{
+  .validate-error {
     font-family: $Montserrat;
     font-weight: 400;
     font-size: 12px;
@@ -391,7 +393,7 @@
     background-color: transparent;
     transform: none;
     left: 0;
-    color: #FF1D1D;
+    color: #ff1d1d;
   }
   input:-webkit-autofill,
   input:-webkit-autofill:focus,
@@ -410,7 +412,7 @@
   }
 }
 
-.contact-form__inner{
+.contact-form__inner {
   position: absolute;
   background: #fff;
   box-shadow: 0 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08);
@@ -419,15 +421,15 @@
   top: 0;
   width: 100%;
   padding: 16px 30px 26px;
-  @include bp(md){
+  @include bp(md) {
     position: static;
   }
-  @include bp(xs){
+  @include bp(xs) {
     padding: 16px 16px 26px;
   }
 }
 
-.contact-form__title{
+.contact-form__title {
   display: block;
   margin-bottom: 24px;
   font-weight: 500;
@@ -436,31 +438,31 @@
   color: #000;
 }
 
-.contact-bot{
+.contact-bot {
   position: relative;
   z-index: 1;
   min-height: 245px;
-  background: #51A4E4;
+  background: #51a4e4;
   padding-top: 65px;
-  @include bp(xs){
+  @include bp(xs) {
     padding-top: 40px;
   }
 }
 
-.contact-bot__title{
+.contact-bot__title {
   display: block;
   font-weight: 400;
   font-size: 25px;
   line-height: 140%;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 16px;
-  @include bp(xs){
+  @include bp(xs) {
     margin-bottom: 25px;
     font-size: 20px;
   }
 }
 
-.contact-bot__brands{
+.contact-bot__brands {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 45px;
@@ -468,24 +470,24 @@
   @include bp(lg) {
     max-width: 100%;
   }
-  @include bp(xs){
+  @include bp(xs) {
     padding-bottom: 20px;
   }
-  li{
+  li {
     margin-right: 40px;
     margin-bottom: 20px;
     padding: 0 12px;
     height: 64px;
     display: flex;
     align-items: center;
-    @include bp(xs){
+    @include bp(xs) {
       width: 50%;
       margin-right: 0;
       justify-content: center;
     }
-    picture{
+    picture {
       max-height: 100%;
-      img{
+      img {
         max-height: 100%;
         object-fit: contain;
       }

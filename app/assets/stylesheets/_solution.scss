@@ -500,7 +500,8 @@
   width: 1114px;
   height: 1114px;
   animation-name: rotate;
-  animation-duration: 20s;
+  // animation-duration: 20s;
+  animation-duration: 35s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   transform-origin: 50% 50%;
@@ -512,7 +513,8 @@
     align-items: center;
     position: absolute;
     animation-name: derotate;
-    animation-duration: 20s;
+    // animation-duration: 20s;
+    animation-duration: 35s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transform-origin: 50% 50%;

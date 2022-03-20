@@ -63,13 +63,22 @@
         z-index: 100;
         bottom: 0;
         left: 0;
-        right: 0;
+        width: 0;
         height: 2px;
         background: $accent;
+        animation: countdown 4s linear forwards;
       }
       @media (max-width: 991px) {
         &::before {
           display: block;
+        }
+      }
+      @keyframes countdown {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
         }
       }
     }
@@ -140,7 +149,7 @@
   & .slide {
     display: flex !important;
     justify-content: space-between;
-    @media (max-width: 991px) {
+    @media (max-width: 480px) {
       flex-wrap: wrap;
     }
 
@@ -150,13 +159,16 @@
     }
 
     & .slide-about {
-      flex-shrink: 0;
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: center;
       max-width: 362px;
       @media (max-width: 992px) {
+        max-width: 50%;
+        margin-right: 20px;
+      }
+      @media (max-width: 480px) {
         order: 1;
         max-width: 100%;
         padding-top: 30px;
@@ -168,10 +180,14 @@
         font-size: 31px;
         line-height: 36px;
         color: $black;
-        @media (max-width: 767px) {
+        @media (max-width: 992px) {
           margin-bottom: 10px;
-          font-size: 26px;
+          font-size: 28px;
           line-height: 38px;
+        }
+        @media (max-width: 767px) {
+          font-size: 23px;
+          line-height: 28px;
         }
       }
       & p {
@@ -189,7 +205,11 @@
         @media (max-width: 992px) {
           max-width: 100%;
           margin-bottom: 20px;
-          font-size: 14px;
+          font-size: 13px;
+        }
+        @media (max-width: 767px) {
+          margin-bottom: 10px;
+          font-size: 12px;
         }
       }
     }

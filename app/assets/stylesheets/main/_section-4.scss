@@ -35,7 +35,7 @@
       color: $red;
     }
     & span {
-      color: $blue-mid;
+      color: $lawender2;
     }
   }
 
@@ -75,6 +75,10 @@
     & a {
       max-width: 174px;
       margin: 0 auto;
+      background-color: #5a36c7 !important;
+      &:hover {
+        background-color: $accent-dark !important;
+      }
     }
   }
 }
