@@ -155,34 +155,34 @@ $(function () {
 
             if ($(this).hasClass('plan1')) {
                 range_val1.update({
-                    from: 0
+                    from: 1
                 });
                 range_val2.update({
-                    from: 0
+                    from: 1
                 });
             }
             if ($(this).hasClass('plan2')) {
                 range_val1.update({
-                    from: 1
+                    from: 6
                 });
                 range_val2.update({
-                    from: 1
+                    from: 11
                 });
             }
             if ($(this).hasClass('plan3')) {
                 range_val1.update({
-                    from: 2
+                    from: 31
                 });
                 range_val2.update({
-                    from: 2
+                    from: 101
                 });
             }
             if ($(this).hasClass('plan4')) {
                 range_val1.update({
-                    from: 3
+                    from: 401
                 });
                 range_val2.update({
-                    from: 3
+                    from: 401
                 });
             }
         });
@@ -191,20 +191,30 @@ $(function () {
     $('#pricing-range1').ionRangeSlider({
         type: 'single',
         min: 0,
-        max: 4,
-        from: 0,
-        to: 4,
-        values: ['5 products planned in a year', '30 products planned in a year', '400 products planned in a year', '700 products planned in a year'],
-        min_interval: 1
+        max: 700,
+        postfix: ' products planned in a year',
+        prettify: function (num) {
+            num = Math.round(num);
+            return num;
+        }
     });
+    /*setTimeout(function () {
+        $('.js-irs-0').append('<span class="irs-handle irs-handle-visible"><i></i><i></i><i></i></span>');
+    }, 1000);*/
+
     $('#pricing-range2').ionRangeSlider({
         type: 'single',
         min: 0,
-        max: 4,
-        from: 0,
-        to: 4,
-        values: ['10k units planned in a year', '100k units planned in a year', '400k units planned in a year', '2M units planned in a year'],
-        min_interval: 1
+        max: 2000,
+        prettify: function(num){
+            if(num < 999){
+                num = Math.round(num);
+                return num + 'k products planned in a year';
+            }else{
+                num = Math.round(num / 1000);
+                return num + 'M products planned in a year';
+            }
+        }
     });
 
     $('#pricing-range1').data('ionRangeSlider').update({
@@ -214,13 +224,13 @@ $(function () {
                 finish_val1 = slider1.result.from,
                 finish_val2 = slider2.result.from;
             //console.log(finish_val1, finish_val2);
-            if (finish_val1 > 2 && finish_val2 > 2) {
+            if (finish_val1 > 400 && finish_val2 > 400) {
                 $('.pricing-plan.plan4').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
-            else if (finish_val1 > 1 && finish_val2 > 1) {
+            else if (finish_val1 > 30 && finish_val2 > 100) {
                 $('.pricing-plan.plan3').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
-            else if (finish_val1 > 0 && finish_val2 > 0) {
+            else if (finish_val1 > 5 && finish_val2 > 10) {
                 $('.pricing-plan.plan2').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
             else {
@@ -236,13 +246,13 @@ $(function () {
                 finish_val1 = slider1.result.from,
                 finish_val2 = slider2.result.from;
             //console.log(finish_val1, finish_val2);
-            if (finish_val1 > 2 && finish_val2 > 2) {
+            if (finish_val1 > 400 && finish_val2 > 400) {
                 $('.pricing-plan.plan4').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
-            else if (finish_val1 > 1 && finish_val2 > 1) {
+            else if (finish_val1 > 30 && finish_val2 > 100) {
                 $('.pricing-plan.plan3').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
-            else if (finish_val1 > 0 && finish_val2 > 0) {
+            else if (finish_val1 > 5 && finish_val2 > 10) {
                 $('.pricing-plan.plan2').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
             else {
@@ -265,5 +275,16 @@ $(function () {
 
     $('.pricing-faq__head').click(function () {
         $(this).toggleClass('active').next('.pricing-faq__body').slideToggle();
+    });
+
+    // popup zoom effect
+
+    $('.popup-btn').magnificPopup({
+        removalDelay: 200,
+        callbacks: {
+            beforeOpen: function() {
+                this.st.mainClass = this.st.el.attr('data-effect');
+            }
+        },
     });
 });

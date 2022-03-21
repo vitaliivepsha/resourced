@@ -79,8 +79,11 @@ main {
 }
 
 .container {
-  width: 1140px;
+  width: 1440px;
   max-width: 100%;
+  @include bp(xxl) {
+    width: 1140px;
+  }
   @include bp(xl) {
     width: 1110px;
   }

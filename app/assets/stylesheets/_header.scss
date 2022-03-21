@@ -7,8 +7,17 @@
   width: 100%;
   height: 70px;
   transition: background 0.2s linear;
+  .logo-white{
+    display: none;
+  }
   &.fixed {
     background: $accent-dark;
+    .logo-black{
+      display: none;
+    }
+    .logo-white{
+      display: block;
+    }
   }
   &__pricing {
     background-color: #fff;
@@ -109,10 +118,13 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1310px;
+  max-width: 1550px;
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
+  @include bp(xxl) {
+    max-width: 1310px;
+  }
 }
 
 .header-main-inner {
@@ -137,10 +149,15 @@
   & > ul {
     display: flex;
     align-items: center;
-    gap: 81px;
+    gap: 41px;
     height: 70px;
     @media (max-width: 991px) {
-      gap: 40px;
+      gap: 10px;
+    }
+    >li{
+      >a{
+        padding: 0 20px;
+      }
     }
   }
   & li {
@@ -166,7 +183,7 @@
         &::after {
           content: "";
           position: absolute;
-          right: -15px;
+          right: 5px;
           top: calc(50% + 1px);
           transform: translateY(-50%);
           width: 0;
@@ -348,8 +365,8 @@
           content: "";
           position: absolute;
           bottom: 23px;
-          left: -4px;
-          right: -4px;
+          left: 16px;
+          right: 16px;
           height: 1px;
           background: $white;
         }
@@ -374,8 +391,8 @@
         content: "";
         position: absolute;
         bottom: 23px;
-        left: -4px;
-        right: -4px;
+        left: 16px;
+        right: 16px;
         height: 1px;
         background: $white;
       }

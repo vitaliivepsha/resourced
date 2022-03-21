@@ -96,6 +96,11 @@
       line-height: 15px;
       color: #fff;
       font-family: $Montserrat;
+      white-space: nowrap;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+      min-width: max-content;
     }
     &:hover {
       > div {
@@ -363,7 +368,7 @@
       }
     }
   }
-  .policy {
+  .policy-text {
     font-family: $Montserrat;
     font-weight: 400;
     font-size: 12px;

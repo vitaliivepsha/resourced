@@ -302,6 +302,10 @@
         }
       }
     }
+    .irs-handle-visible{
+      pointer-events: none;
+      transition: linear;
+    }
     .irs-line{
       height: 6px;
       border-radius: 20px;
@@ -945,6 +949,7 @@
     margin-bottom: 16px;
   }
   img{
+    display: block;
     max-width: 100%;
     object-fit: contain;
     margin: 0 auto 16px;

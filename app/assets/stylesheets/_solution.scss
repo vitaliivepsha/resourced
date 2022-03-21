@@ -82,7 +82,7 @@
 
   & .inner {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     max-width: 1512px;
     margin: 0 auto;
   }
@@ -263,6 +263,7 @@
 .solution-complete-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 30px;
   margin-bottom: 64px;
   @media (max-width: 767px) {
