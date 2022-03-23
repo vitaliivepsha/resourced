@@ -47,6 +47,17 @@ $(function () {
         $('body').trigger('scroll');
     }, 100);
 
+    // popup zoom effect
+    $('.popup-btn').each(function () {
+        $(this).magnificPopup({
+            callbacks: {
+                beforeOpen: function() {
+                    this.st.mainClass = this.st.el.attr('data-effect');
+                }
+            },
+        });
+    });
+
     // scroll to id
 
     $(document).on('click', 'a[href^="#"]', function (e) {
@@ -275,16 +286,5 @@ $(function () {
 
     $('.pricing-faq__head').click(function () {
         $(this).toggleClass('active').next('.pricing-faq__body').slideToggle();
-    });
-
-    // popup zoom effect
-
-    $('.popup-btn').magnificPopup({
-        removalDelay: 200,
-        callbacks: {
-            beforeOpen: function() {
-                this.st.mainClass = this.st.el.attr('data-effect');
-            }
-        },
     });
 });

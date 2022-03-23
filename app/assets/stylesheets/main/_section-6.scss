@@ -143,6 +143,7 @@
         right: 175px;
         width: 120px;
         height: 120px;
+        animation-duration: 40s;
         & span {
           & picture {
             & img {
@@ -156,6 +157,7 @@
         right: 543px;
         width: 120px;
         height: 120px;
+        animation-duration: 40s;
         & span {
           & picture {
             & img {
@@ -169,6 +171,7 @@
         right: 235px;
         width: 100px;
         height: 100px;
+        //animation-duration: 40s;
         & span {
           & picture {
             & img {
@@ -188,6 +191,27 @@
               padding: 0 20px;
             }
           }
+        }
+      }
+    }
+    &__sm{
+      width: 600px;
+      height: 600px;
+      top: calc(9% + 150px);
+      left: calc(10% + 150px);
+      animation-duration: 40s;
+      & div{
+        &.shopify{
+          top: 376px;
+          right: 84px;
+        }
+        &.madden {
+          top: 62px;
+          right: 365px;
+        }
+        &.b-come {
+          top: 464px;
+          right: 227px;
         }
       }
     }
