@@ -156,6 +156,18 @@ $(function () {
         $(this).click(function () {
             var range_val1 = $('#pricing-range1').data('ionRangeSlider');
             var range_val2 = $('#pricing-range2').data('ionRangeSlider');
+            var $range_handle1 = $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').find('.irs-handle');
+            var $range_single1 = $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').find('.irs-single');
+            var $range_bar1 = $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').find('.irs-bar');
+            var $range_handle2 = $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').find('.irs-handle');
+            var $range_single2 = $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').find('.irs-single');
+            var $range_bar2 = $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').find('.irs-bar');
 
             if ($(this).hasClass('active')) {
                 $(this).removeClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
@@ -166,42 +178,84 @@ $(function () {
 
             if ($(this).hasClass('plan1')) {
                 range_val1.update({
-                    from: 1
+                    from: 5
                 });
+                $range_handle1.css('left', '0.55113%');
+                $range_single1.css('left', '-12.8253%');
+                $range_bar1.css('width', '2.39615%');
                 range_val2.update({
-                    from: 1
+                    from: 10
                 });
+                $range_handle2.css('left', '0.433612%');
+                $range_single2.css('left', '-13.3764%');
+                $range_bar2.css('width', '2.27863%');
             }
             if ($(this).hasClass('plan2')) {
                 range_val1.update({
-                    from: 6
+                    from: 30
                 });
+                $range_handle1.css('left', '3.99569%');
+                $range_single1.css('left', '-9.38069%');
+                $range_bar1.css('width', '5.84071%');
                 range_val2.update({
-                    from: 11
+                    from: 100
                 });
+                $range_handle2.css('left', '4.76973%');
+                $range_single2.css('left', '-8.60666%');
+                $range_bar2.css('width', '6.61475%');
             }
             if ($(this).hasClass('plan3')) {
                 range_val1.update({
-                    from: 31
+                    from: 400
                 });
+                $range_handle1.css('left', '54.9752%');
+                $range_single1.css('left', '41.5988%');
+                $range_bar1.css('width', '56.8202%');
                 range_val2.update({
-                    from: 101
+                    from: 400
                 });
+                $range_handle2.css('left', '19.2234%');
+                $range_single2.css('left', '5.84707%');
+                $range_bar2.css('width', '21.0685%');
             }
             if ($(this).hasClass('plan4')) {
                 range_val1.update({
-                    from: 401
+                    from: 700
                 });
+                $range_handle1.css('left', '96.31%');
+                $range_single1.css('left', '82.9336%');
+                $range_bar1.css('width', '98.155%');
                 range_val2.update({
-                    from: 401
+                    from: 2000
                 });
+                $range_handle2.css('left', '96.31%');
+                $range_single2.css('left', '82.9336%');
+                $range_bar2.css('width', '98.155%');
             }
+            $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').css('opacity', 1);
+            $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').css('opacity', 0);
+            $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat.pricing-range__visualisation').css('opacity', 1);
+            $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').css('opacity', 0);
+            setTimeout(function () {
+                $('#pricing-range1').closest('.pricing-range__item')
+                    .find('.irs--flat.pricing-range__visualisation').css('opacity', 0);
+                $('#pricing-range1').closest('.pricing-range__item')
+                    .find('.irs--flat:not(.pricing-range__visualisation)').css('opacity', 1);
+                $('#pricing-range2').closest('.pricing-range__item')
+                    .find('.irs--flat.pricing-range__visualisation').css('opacity', 0);
+                $('#pricing-range2').closest('.pricing-range__item')
+                    .find('.irs--flat:not(.pricing-range__visualisation)').css('opacity', 1);
+            }, 500);
         });
     });
 
     $('#pricing-range1').ionRangeSlider({
         type: 'single',
-        min: 0,
+        min: 1,
         max: 700,
         postfix: ' products planned in a year',
         prettify: function (num) {
@@ -215,7 +269,7 @@ $(function () {
 
     $('#pricing-range2').ionRangeSlider({
         type: 'single',
-        min: 0,
+        min: 1,
         max: 2000,
         prettify: function(num){
             if(num < 999){
@@ -227,6 +281,13 @@ $(function () {
             }
         }
     });
+
+    var $range_handle1 = $('#pricing-range1').closest('.pricing-range__item')
+        .find('.irs--flat.pricing-range__visualisation').find('.irs-handle');
+    var $range_single1 = $('#pricing-range1').closest('.pricing-range__item')
+        .find('.irs--flat.pricing-range__visualisation').find('.irs-single');
+    var $range_bar1 = $('#pricing-range1').closest('.pricing-range__item')
+        .find('.irs--flat.pricing-range__visualisation').find('.irs-bar');
 
     $('#pricing-range1').data('ionRangeSlider').update({
         onFinish: function () {
@@ -247,8 +308,24 @@ $(function () {
             else {
                 $('.pricing-plan.plan1').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
+            var range_handle1_pos = $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').find('.irs-handle').attr('style');
+            var range_single1_pos = $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').find('.irs-single').attr('style');
+            var range_bar1_pos = $('#pricing-range1').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').find('.irs-bar').attr('style');
+            $range_handle1.attr('style', range_handle1_pos);
+            $range_single1.attr('style', range_single1_pos);
+            $range_bar1.attr('style', range_bar1_pos);
         }
     });
+
+    var $range_handle2 = $('#pricing-range2').closest('.pricing-range__item')
+        .find('.irs--flat.pricing-range__visualisation').find('.irs-handle');
+    var $range_single2 = $('#pricing-range2').closest('.pricing-range__item')
+        .find('.irs--flat.pricing-range__visualisation').find('.irs-single');
+    var $range_bar2 = $('#pricing-range2').closest('.pricing-range__item')
+        .find('.irs--flat.pricing-range__visualisation').find('.irs-bar');
 
     $('#pricing-range2').data('ionRangeSlider').update({
         onFinish: function () {
@@ -269,6 +346,15 @@ $(function () {
             else {
                 $('.pricing-plan.plan1').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
             }
+            var range_handle2_pos = $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').find('.irs-handle').attr('style');
+            var range_single2_pos = $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').find('.irs-single').attr('style');
+            var range_bar2_pos = $('#pricing-range2').closest('.pricing-range__item')
+                .find('.irs--flat:not(.pricing-range__visualisation)').find('.irs-bar').attr('style');
+            $range_handle2.attr('style', range_handle2_pos);
+            $range_single2.attr('style', range_single2_pos);
+            $range_bar2.attr('style', range_bar2_pos);
         }
     });
 

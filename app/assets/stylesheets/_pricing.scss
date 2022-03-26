@@ -283,6 +283,7 @@
       height: 70px;
     }
     .irs-bar{
+      left: 0;
       height: 6px;
       border-radius: 20px 0 0 20px;
       background: #4717AA;
@@ -347,6 +348,24 @@
         transform: translateX(-50%);
       }
     }
+  }
+}
+
+.pricing-range__item{
+  position: relative;
+}
+
+.pricing-range__visualisation{
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  @include bp(xs) {
+    display: none;
+  }
+  .irs-handle, .irs-bar, .irs-single{
+    transition: linear .5s;
   }
 }
 

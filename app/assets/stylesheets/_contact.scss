@@ -73,6 +73,7 @@
     width: 60px;
     margin-right: 32px;
     margin-bottom: 10px;
+    text-decoration: none;
     @include bp(xs) {
       margin-right: 20px;
     }
@@ -85,6 +86,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: linear .2s;
     }
     > span {
       display: block;
@@ -103,8 +105,14 @@
       min-width: max-content;
     }
     &:hover {
+      text-decoration: none;
       > div {
-        background-color: rgba(255, 255, 255, 0.04);
+        background-color: rgb(81, 164, 228);
+      }
+      svg{
+        path{
+          fill: #fff;
+        }
       }
     }
     &:last-child {

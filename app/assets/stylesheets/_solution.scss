@@ -634,3 +634,45 @@
     transform: rotate(-360deg) translateX(0);
   }
 }
+
+.library-section__solution{
+  height: 865px;
+  .container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    text-align: center;
+   > span {
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+      font-size: 39px;
+      line-height: 45px;
+      color: $black;
+      @media (max-width: 767px) {
+        font-size: 27px;
+        line-height: 31px;
+      }
+    }
+    > b {
+      position: relative;
+      z-index: 1;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 140%;
+      text-align: center;
+      color: $black;
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+  }
+  .library-bg{
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

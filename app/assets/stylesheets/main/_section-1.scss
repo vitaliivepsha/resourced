@@ -1,7 +1,16 @@
 .main-section {
   position: relative;
-  height: 983px;
+  height: 100vh;
+  min-height: 750px;
   padding-top: 198px;
+  @include bp(xl) {
+    height: 983px;
+    min-height: unset;
+    padding-top: 198px;
+  }
+  @media (max-height: 899px) {
+    padding-top: 14vh;
+  }
   @media (max-width: 767px) {
     padding-top: 140px;
   }
