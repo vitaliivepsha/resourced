@@ -1,0 +1,51 @@
+.source-main{
+  position: relative;
+  overflow: hidden;
+  height: 555px;
+  padding-top: 133px;
+  >picture{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (max-width: 1599px) {
+      height: 100%;
+    }
+    img{
+      width: 100%;
+      @media (max-width: 1599px) {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  >.container{
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.source-main__title{
+  display: block;
+  margin: 0 auto 20px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 41px;
+  text-align: center;
+  color: #fff;
+}
+
+.source-main__pic{
+  width: 391px;
+  display: block;
+  margin: 0 auto;
+  @include bp(sm) {
+    width: 488px;
+    max-width: 100%;
+  }
+  img{
+    width: 100%;
+    object-fit: contain;
+  }
+}
