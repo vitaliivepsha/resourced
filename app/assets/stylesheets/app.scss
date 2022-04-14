@@ -24,14 +24,23 @@ body {
   &.swal2-shown {
     position: static;
   }
-   &.menu-opened {
-     height: 100vh;
-     overflow: hidden;
-     .mobile-menu__wrapper {
-       visibility: visible;
-       opacity: 1;
-     }
-   }
+  &.menu-opened {
+    height: 100vh;
+    overflow: hidden;
+    .mobile-menu__wrapper {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  &.dz-opened{
+    height: 100vh;
+    overflow: hidden;
+    .drop-window{
+      .btn{
+        display: flex;
+      }
+    }
+  }
 }
 
 ol,
