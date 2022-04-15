@@ -138,6 +138,20 @@
           }
         }
       }
+      &.ms2 {
+        top: 110px;
+        right: 177px;
+        width: 150px;
+        height: 150px;
+      
+        & span {
+          & picture {
+            & img {
+              padding: 0 36px;
+            }
+          }
+        }
+      }
       &.shopify {
         top: 348px;
         right: 175px;
@@ -180,7 +194,7 @@
           }
         }
       }
-      &.sap {
+      &.extend {
         top: 710px;
         right: 367px;
         width: 120px;
@@ -188,7 +202,23 @@
         & span {
           & picture {
             & img {
-              padding: 0 20px;
+              padding: 0 25px;
+              padding-top: 5px;
+            }
+          }
+        }
+      }
+      &.sap {
+        top: 710px;
+        right: 367px;
+        width: 120px;
+        height: 120px;
+      
+        & span {
+          & picture {
+            & img {
+              padding: 0 25px;
+              padding-top: 5px;
             }
           }
         }

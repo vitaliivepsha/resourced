@@ -1,11 +1,10 @@
 .review-section {
-  padding-top: 127px;
   padding-bottom: 123px;
   @media (max-width: 767px) {
-    padding: 80px 0;
+    padding-bottom: 80px;
   }
   @media (max-width: 574px) {
-    padding: 50px 0;
+    padding-top: 50px;
   }
 }
 
@@ -17,7 +16,7 @@
   & .slick-dots {
     position: absolute;
     bottom: -9px;
-    left: 285px;
+    left: 303px;
     display: flex;
     width: 100%;
     max-width: 730px;
@@ -60,11 +59,18 @@
       }
     }
   }
+
   & .slide {
+    padding-top: 127px;
+
     display: flex !important;
-    gap: 30px;
+    gap: 47px;
+    @media (max-width: 767px) {
+      padding-top: 80px;
+    }
     @media (max-width: 574px) {
       display: block !important;
+      padding-top: 50px;
     }
     &-img {
       flex-shrink: 0;
@@ -103,8 +109,20 @@
       }
     }
     &-text {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       max-width: 100%;
       padding-bottom: 47px;
+&-logo {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 100px;
+}
+
       & p {
         margin: 0;
         margin-bottom: 20px;
