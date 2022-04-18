@@ -10,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/contact.html');
     require('./assets/templates/layouts/policy.html');
     require('./assets/templates/layouts/terms.html');
+    require('./assets/templates/layouts/source-suppliers-success.html');
     require('./assets/templates/layouts/source-suppliers-start-page.html');
     require('./assets/templates/layouts/source-suppliers-introduction-page.html');
     require('./assets/templates/layouts/source-suppliers-product-information-page.html');
@@ -57,7 +58,7 @@ $(function () {
     $('.popup-btn').each(function () {
         $(this).magnificPopup({
             callbacks: {
-                beforeOpen: function() {
+                beforeOpen: function () {
                     this.st.mainClass = this.st.el.attr('data-effect');
                 }
             },
@@ -263,7 +264,7 @@ $(function () {
         });
     });
 
-    if($('#pricing-range1').length){
+    if ($('#pricing-range1').length) {
         $('#pricing-range1').ionRangeSlider({
             type: 'single',
             min: 1,
@@ -279,16 +280,16 @@ $(function () {
         $('.js-irs-0').append('<span class="irs-handle irs-handle-visible"><i></i><i></i><i></i></span>');
     }, 1000);*/
 
-    if($('#pricing-range2').length){
+    if ($('#pricing-range2').length) {
         $('#pricing-range2').ionRangeSlider({
             type: 'single',
             min: 1,
             max: 2000,
-            prettify: function(num){
-                if(num < 999){
+            prettify: function (num) {
+                if (num < 999) {
                     num = Math.round(num);
                     return num + 'k products planned in a year';
-                }else{
+                } else {
                     num = Math.round(num / 1000);
                     return num + 'M products planned in a year';
                 }
@@ -303,7 +304,7 @@ $(function () {
     var $range_bar1 = $('#pricing-range1').closest('.pricing-range__item')
         .find('.irs--flat.pricing-range__visualisation').find('.irs-bar');
 
-    if($('#pricing-range1').length) {
+    if ($('#pricing-range1').length) {
         $('#pricing-range1').data('ionRangeSlider').update({
             onFinish: function () {
                 var slider1 = $('#pricing-range1').data('ionRangeSlider'),
@@ -340,7 +341,7 @@ $(function () {
     var $range_bar2 = $('#pricing-range2').closest('.pricing-range__item')
         .find('.irs--flat.pricing-range__visualisation').find('.irs-bar');
 
-    if($('#pricing-range2').length) {
+    if ($('#pricing-range2').length) {
         $('#pricing-range2').data('ionRangeSlider').update({
             onFinish: function () {
                 var slider1 = $('#pricing-range1').data('ionRangeSlider'),
@@ -393,23 +394,23 @@ $(function () {
         var dropArea = $(document);
         var dropWindow = $('.drop-window');
 
-        function onDragOver (e) {
+        function onDragOver(e) {
             dropWindow.show();
             $('body').addClass('dz-opened');
         }
 
-        function onDragEnter (e) {
+        function onDragEnter(e) {
             e.preventDefault();
         }
 
-        function onDragLeave (e) {
-            if(!$('#dropzone').hasClass('dz-drag-hover')){
+        function onDragLeave(e) {
+            if (!$('#dropzone').hasClass('dz-drag-hover')) {
                 dropWindow.hide();
                 $('body').removeClass('dz-opened');
             }
         }
 
-        function onDrop (e) {
+        function onDrop(e) {
             e.preventDefault();
         }
 
@@ -431,7 +432,7 @@ $(function () {
 
     // tabs
 
-    $('.tabs').on('click', 'li:not(.active)', function() {
+    $('.tabs').on('click', 'li:not(.active)', function () {
         $(this).addClass('active').siblings().removeClass('active')
             .closest('.tabs-wrapper').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
     });
@@ -446,7 +447,7 @@ $(function () {
 
     // range sizes
 
-    if($('#eu-size-range').length){
+    if ($('#eu-size-range').length) {
         var $range = $('#eu-size-range'),
             $from = $range.closest('.source-product__range-wrapper').find('.js-from'),
             $to = $range.closest('.source-product__range-wrapper').find('.js-to'),
@@ -516,7 +517,7 @@ $(function () {
         });
 
         $('.gender_item').click(function () {
-            if($(this).hasClass('gender_kids')){
+            if ($(this).hasClass('gender_kids')) {
                 $range.data('ionRangeSlider').update({
                     from: 33,
                     to: 40,
@@ -530,7 +531,7 @@ $(function () {
                 $to.val(40);
                 $to.attr('onkeyup', 'if(value>40) value=40;');
             }
-            if($(this).hasClass('gender_men')){
+            if ($(this).hasClass('gender_men')) {
                 $range.data('ionRangeSlider').update({
                     from: 40,
                     to: 50,
@@ -544,7 +545,7 @@ $(function () {
                 $to.val(50);
                 $to.attr('onkeyup', 'if(value>50) value=50;');
             }
-            if($(this).hasClass('gender_women')){
+            if ($(this).hasClass('gender_women')) {
                 $range.data('ionRangeSlider').update({
                     from: 35,
                     to: 42,
@@ -558,7 +559,7 @@ $(function () {
                 $to.val(42);
                 $to.attr('onkeyup', 'if(value>42) value=42;');
             }
-            if($(this).hasClass('gender_babies')){
+            if ($(this).hasClass('gender_babies')) {
                 $range.data('ionRangeSlider').update({
                     from: 22,
                     to: 32,
@@ -575,7 +576,7 @@ $(function () {
         });
     }
 
-    if($('#us-size-range').length){
+    if ($('#us-size-range').length) {
         var $range1 = $('#us-size-range'),
             $from1 = $range1.closest('.source-product__range-wrapper').find('.js-from'),
             $to1 = $range1.closest('.source-product__range-wrapper').find('.js-to'),
@@ -645,7 +646,7 @@ $(function () {
         });
 
         $('.gender_item').click(function () {
-            if($(this).hasClass('gender_kids')){
+            if ($(this).hasClass('gender_kids')) {
                 $range1.data('ionRangeSlider').update({
                     from: 2,
                     to: 8,
@@ -659,7 +660,7 @@ $(function () {
                 $to1.val(8);
                 $to1.attr('onkeyup', 'if(value>8) value=8;');
             }
-            if($(this).hasClass('gender_men')){
+            if ($(this).hasClass('gender_men')) {
                 $range1.data('ionRangeSlider').update({
                     from: 8,
                     to: 14,
@@ -673,7 +674,7 @@ $(function () {
                 $to1.val(14);
                 $to1.attr('onkeyup', 'if(value>14) value=14;');
             }
-            if($(this).hasClass('gender_women')){
+            if ($(this).hasClass('gender_women')) {
                 $range1.data('ionRangeSlider').update({
                     from: 5,
                     to: 10,
@@ -687,7 +688,7 @@ $(function () {
                 $to1.val(10);
                 $to1.attr('onkeyup', 'if(value>10) value=10;');
             }
-            if($(this).hasClass('gender_babies')){
+            if ($(this).hasClass('gender_babies')) {
                 $range1.data('ionRangeSlider').update({
                     from: 2,
                     to: 6,
@@ -704,7 +705,7 @@ $(function () {
         });
     }
 
-    if($('#uk-size-range').length){
+    if ($('#uk-size-range').length) {
         var $range2 = $('#uk-size-range'),
             $from2 = $range2.closest('.source-product__range-wrapper').find('.js-from'),
             $to2 = $range2.closest('.source-product__range-wrapper').find('.js-to'),
@@ -774,7 +775,7 @@ $(function () {
         });
 
         $('.gender_item').click(function () {
-            if($(this).hasClass('gender_kids')){
+            if ($(this).hasClass('gender_kids')) {
                 $range2.data('ionRangeSlider').update({
                     from: 1,
                     to: 7,
@@ -788,7 +789,7 @@ $(function () {
                 $to2.val(7);
                 $to2.attr('onkeyup', 'if(value>7) value=7;');
             }
-            if($(this).hasClass('gender_men')){
+            if ($(this).hasClass('gender_men')) {
                 $range2.data('ionRangeSlider').update({
                     from: 7,
                     to: 12,
@@ -802,7 +803,7 @@ $(function () {
                 $to2.val(12);
                 $to2.attr('onkeyup', 'if(value>12) value=12;');
             }
-            if($(this).hasClass('gender_women')){
+            if ($(this).hasClass('gender_women')) {
                 $range2.data('ionRangeSlider').update({
                     from: 3,
                     to: 8,
@@ -816,7 +817,7 @@ $(function () {
                 $to2.val(8);
                 $to2.attr('onkeyup', 'if(value>8) value=8;');
             }
-            if($(this).hasClass('gender_babies')){
+            if ($(this).hasClass('gender_babies')) {
                 $range2.data('ionRangeSlider').update({
                     from: 5,
                     to: 13,
@@ -833,7 +834,7 @@ $(function () {
         });
     }
 
-    if($('#cn-size-range').length){
+    if ($('#cn-size-range').length) {
         var $range3 = $('#cn-size-range'),
             $from3 = $range3.closest('.source-product__range-wrapper').find('.js-from'),
             $to3 = $range3.closest('.source-product__range-wrapper').find('.js-to'),
@@ -903,7 +904,7 @@ $(function () {
         });
 
         $('.gender_item').click(function () {
-            if($(this).hasClass('gender_kids')){
+            if ($(this).hasClass('gender_kids')) {
                 $range3.data('ionRangeSlider').update({
                     from: 22,
                     to: 32,
@@ -917,7 +918,7 @@ $(function () {
                 $to3.val(32);
                 $to3.attr('onkeyup', 'if(value>32) value=32;');
             }
-            if($(this).hasClass('gender_men')){
+            if ($(this).hasClass('gender_men')) {
                 $range3.data('ionRangeSlider').update({
                     from: 38,
                     to: 49,
@@ -931,7 +932,7 @@ $(function () {
                 $to3.val(49);
                 $to3.attr('onkeyup', 'if(value>49) value=49;');
             }
-            if($(this).hasClass('gender_women')){
+            if ($(this).hasClass('gender_women')) {
                 $range3.data('ionRangeSlider').update({
                     from: 35,
                     to: 42,
@@ -948,7 +949,7 @@ $(function () {
         });
     }
 
-    if($('#jp-size-range').length){
+    if ($('#jp-size-range').length) {
         var $range4 = $('#jp-size-range'),
             $from4 = $range4.closest('.source-product__range-wrapper').find('.js-from'),
             $to4 = $range4.closest('.source-product__range-wrapper').find('.js-to'),
@@ -1018,7 +1019,7 @@ $(function () {
         });
 
         $('.gender_item').click(function () {
-            if($(this).hasClass('gender_kids')){
+            if ($(this).hasClass('gender_kids')) {
                 $range4.data('ionRangeSlider').update({
                     from: 20,
                     to: 26,
@@ -1032,7 +1033,7 @@ $(function () {
                 $to4.val(26);
                 $to4.attr('onkeyup', 'if(value>26 value=26;');
             }
-            if($(this).hasClass('gender_men')){
+            if ($(this).hasClass('gender_men')) {
                 $range4.data('ionRangeSlider').update({
                     from: 26,
                     to: 32,
@@ -1046,7 +1047,7 @@ $(function () {
                 $to4.val(32);
                 $to4.attr('onkeyup', 'if(value>32) value=32;');
             }
-            if($(this).hasClass('gender_women')){
+            if ($(this).hasClass('gender_women')) {
                 $range4.data('ionRangeSlider').update({
                     from: 22,
                     to: 27,
@@ -1060,7 +1061,7 @@ $(function () {
                 $to4.val(27);
                 $to4.attr('onkeyup', 'if(value>27) value=27;');
             }
-            if($(this).hasClass('gender_babies')){
+            if ($(this).hasClass('gender_babies')) {
                 $range4.data('ionRangeSlider').update({
                     from: 14,
                     to: 20,
@@ -1079,33 +1080,40 @@ $(function () {
 
     // check textarea value
 
-    $('.textarea').blur(function(){
-        if(!$(this).val()) {
+    $('.textarea').blur(function () {
+        if (!$(this).val()) {
             $(this).parent().removeClass('filled');
         }
-        else{
+        else {
             $(this).parent().addClass('filled');
         }
     });
 
     // date placeholder
 
-    $('.input.date').on('focus', function() {
+    $('.input.date').on('focus', function () {
         $(this).closest('.date-choose').find('.placeholder').hide();
     });
-    $('.input.date').on('focusout', function() {
+    $('.input.date').on('focusout', function () {
         $(this).closest('.date-choose').find('.placeholder').show();
     });
-    $('.input.date').on('change', function() {
+    $('.input.date').on('change', function () {
         $(this).closest('.date-choose').find('.placeholder').remove();
     });
 
     // multiselect
 
     $('.multiselect').select2({
-        closeOnSelect : false,
-        placeholder : "Where to manufacture product?",
+        closeOnSelect: false,
+        placeholder: "Where to manufacture product?",
         allowClear: false,
         dropdownParent: $('.multiselect-dropdown')
+    });
+
+
+    // 
+    $('.source-introduction-size').SumoSelect({
+        forceCustomRendering: true,
+        csvDispCount: 3
     });
 });
