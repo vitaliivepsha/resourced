@@ -41,7 +41,7 @@
   width: 838px;
   max-width: calc(100vw - 18px);
   background: #1B0D87;
-  padding: 25px 55px 18px;
+  padding: 25px 45px 18px;
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -80,6 +80,7 @@
 
 .signup-popup__title{
   display: block;
+  margin-bottom: 30px;
   font-weight: 500;
   font-size: 48px;
   line-height: 55px;
@@ -91,11 +92,11 @@
 }
 
 .signup-popup__subtitle{
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 140%;
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 36px;
   display: block;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   text-align: center;
   @include bp(xs){
     font-size: 18px;
@@ -103,21 +104,21 @@
   }
 }
 
-.signup-popup__descr{
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 150%;
-  font-family: $Montserrat;
-  text-align: center;
-  margin-bottom: 42px;
-  @include bp(xs){
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  p{
-    margin-bottom: 0;
-  }
-}
+// .signup-popup__descr{
+//   font-weight: 500;
+//   font-size: 16px;
+//   line-height: 150%;
+//   font-family: $Montserrat;
+//   text-align: center;
+//   margin-bottom: 42px;
+//   @include bp(xs){
+//     font-size: 14px;
+//     margin-bottom: 20px;
+//   }
+//   p{
+//     margin-bottom: 0;
+//   }
+// }
 
 .signup-popup__main{
   display: flex;
@@ -206,7 +207,7 @@
     width: 100%;
     height: 42px;
     background: #F2F2F2;
-    border-radius: 11px;
+    border-radius: 7px;
     border: none;
     padding: 0 14px;
     font-style: italic;
@@ -231,6 +232,7 @@
     justify-content: center;
     margin: 32px auto 0;
     border: none;
+    border-radius: 7px;
     color: #fff;
     font-weight: 500;
     font-size: 16px;
@@ -291,6 +293,7 @@
   .contact-form__inner{
     position: static;
     padding: 32px 30px;
+    border-radius: 8px;
     @include bp(xs){
       padding: 30px 15px 20px;
     }
@@ -298,8 +301,16 @@
   .contact-form__title{
     font-size: 31px;
     line-height: 36px;
-    margin-bottom: 8px;
+    font-weight: 500;
+    margin-bottom: 25px;
     color: $black;
+  }
+  & .btn {
+    border-radius: 11px;
+    background-color: $blue !important;
+    &:hover {
+      background-color: $accent-dark !important;
+    }
   }
 }
 
@@ -310,7 +321,7 @@
   font-family: $Montserrat;
   color: #000;
   p{
-    margin-bottom: 24px;
+    margin-bottom: 55px;
   }
 }
 
@@ -332,14 +343,16 @@
 }
 
 .swal2-modal{
-  width: 560px;
+  width: 560px !important;
+  height: 354px !important;
   max-width: calc(100vw - 30px);
   background: #1B0D87 !important;
-  padding: 50px 20px !important;
+  padding: 50px 10px !important;
   max-height: 100vh;
   overflow: auto;
   border-radius: 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
   .swal2-title{
     font-family: $default !important;
     font-weight: 500;
@@ -347,7 +360,7 @@
     line-height: 55px;
     display: block;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     color: #fff;
     position: relative;
   }
@@ -358,7 +371,7 @@
     font-size: 25px;
     line-height: 140%;
     text-align: center;
-    margin-bottom: 75px;
+    margin-bottom: 71px;
   }
   .swal2-buttonswrapper{
     margin-top: 0;
@@ -375,8 +388,20 @@
       line-height: 1;
       opacity: 1;
       padding: 0;
-      border-radius: 0;
+      border-radius: 7px;
+      font-family: $Montserrat;
       box-shadow: none !important;
+      font-size: 0;
+      &::before {
+        content: "Close";
+        font-family: $Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        color: #FFFEFE;
+      }
       &:hover{
         background-color: $lawender2 !important;
         border-color: $lawender2 !important;

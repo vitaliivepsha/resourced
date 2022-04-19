@@ -16,7 +16,6 @@
     font-weight: 500;
     font-size: 48px;
     line-height: 55px;
-    text-align: center;
     color: $black;
     @media (max-width: 991px) {
       font-size: 36px;
@@ -210,5 +209,12 @@
         padding: 15px;
       }
     }
+  }
+}
+
+
+.policy--terms {
+  & h1 {
+    text-align: center;
   }
 }
