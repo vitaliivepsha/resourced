@@ -31,11 +31,10 @@
                                     d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
                                     fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-
                         </a>
                     </div>
-                    <span>© <?php echo date('Y'); ?> Resourced, AB.</span>
-                    <span>Made with love in Sweden</span>
+                    <span>© <?php echo date('Y'); ?> <?php echo get_field('copyright', 'option')['line1']; ?></span>
+                    <span><?php echo get_field('copyright', 'option')['line2']; ?></span>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
