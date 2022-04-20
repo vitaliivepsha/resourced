@@ -1113,7 +1113,10 @@ $(function () {
 
     // 
     $('.source-introduction-size').SumoSelect({
-        forceCustomRendering: true,
-        csvDispCount: 3
+        forceCustomRendering: true
     });
+
+    $('.swal2-modal.swal2-styled.swal2-cancel').css('background-color', 'red');
+
 });
+

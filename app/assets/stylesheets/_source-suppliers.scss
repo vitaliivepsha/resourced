@@ -1,14 +1,22 @@
-.source-main{
+.source-main {
   position: relative;
   overflow: hidden;
-  padding-top: 120px;
+  padding-top: 200px;
   padding-bottom: 45px;
   @include bp(sm) {
     padding: 100px 0 0;
   }
+ & .source-main__title {
+  font-size: 48px;
+  line-height: 55px;
+  @include bp(sm) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+ }
 }
 
-.source-main__title{
+.source-main__title {
   display: block;
   margin: 0 auto 48px;
   font-weight: 500;
@@ -26,6 +34,9 @@
   width: 464px;
   display: block;
   margin: 0 auto;
+  @media (min-width: 768px) {
+    display: none;
+  }
   @include bp(sm) {
     max-width: 100%;
   }
@@ -34,35 +45,54 @@
     object-fit: contain;
   }
 }
-
+// ---
 .source-steps{
-  padding: 45px 0 55px;
+  padding: 45px 0 200px;
   color: $accent-dark;
-  .btn{
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    width: 114px;
-    height: 28px;
-    min-height: 28px;
+  @media (max-width: 767px) {
+   padding-bottom: 23px;
+  }
+  .btn {
+    box-shadow: 0px 5.37536px 5.37536px rgba(0, 0, 0, 0.25);
+    width: 153px;
+    height: 37px;
+    min-height: 37px;
     background-color: $accent-dark;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
     line-height: 1;
     margin: 0 auto;
     padding: 0;
+  
+    & svg {
+      display: none;
+  
+      @include bp(sm) {
+        display: block;
+      }
+    }
+  
     @include bp(sm) {
       font-size: 0;
       width: 25px;
       height: 24px;
       min-height: 24px;
       border-radius: 6px;
+      margin-top: 45px;
     }
-    &:hover{
+  
+    &:hover {
       background-color: $accent;
     }
-    svg{
-      display: none;
+  
+    &.btn-finish {
       @include bp(sm) {
-        display: block;
+        width: 114px;
+        height: 28px;
+        min-height: 28px;
+        border-radius: 21px;
+        font-size: 16px;
       }
     }
   }
@@ -72,7 +102,7 @@
   display: flex;
   justify-content: center;
   gap: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 134px;
   @include bp(sm) {
     flex-direction: column;
     align-items: center;
@@ -82,18 +112,18 @@
 }
 
 .source-steps__list-item{
-  width: 220px;
+  width: 300px;
   position: relative;
   @include bp(sm) {
     width: 260px;
   }
   >span{
     font-weight: 500;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 140%;
     display: block;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 15px;
   }
   >div{
     display: flex;
@@ -102,14 +132,15 @@
   }
   >p{
     margin-bottom: 0;
+    font-family: $Montserrat;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 19px;
     line-height: 150%;
     text-align: center;
   }
   >svg{
     position: absolute;
-    top: 66px;
+    top: 92px;
     left: calc(100% + 1px);
     @include bp(sm) {
       display: none;
@@ -118,23 +149,24 @@
 }
 
 .source-introduction{
-  padding: 115px 0 75px;
+  padding: 115px 0 70px;
   @include bp(sm) {
     padding: 100px 0 55px;
   }
   //  ---
   .btn {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5.37536px 5.37536px rgba(0, 0, 0, 0.25);
     width: 153px;
     height: 37px;
     min-height: 37px;
     background-color: $accent-dark;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
     line-height: 1;
     margin: 0 auto;
     padding: 0;
-  
+  color: #fff;
     & svg {
       display: none;
   
@@ -178,7 +210,7 @@
   display: flex;
   justify-content: center;
   gap: 22px;
-  margin-bottom: 50px;
+  margin-bottom: 43px;
   i{
     width: 8px;
     height: 8px;
@@ -467,7 +499,7 @@ pointer-events: none;
         height: 0;
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
-        border-top: 12px solid #fff;
+        border-top: 11px solid #fff;
        }
      }
     }
@@ -616,8 +648,8 @@ pointer-events: none;
     height: 37px;
     min-height: 37px;
     background-color: $accent-dark;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 1;
     margin: 0 auto;
     padding: 0;
@@ -770,6 +802,8 @@ pointer-events: none;
       color: #fff;
       text-align: center;
       padding: 10px;
+      padding-left: 7px;
+      padding-right: 7px;
       cursor: pointer;
       font-family: $Montserrat;
       span{
@@ -801,7 +835,7 @@ pointer-events: none;
     height: 28px;
     min-height: 28px;
     background-color: $accent-dark;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     line-height: 1;
     margin: 20px auto 0;
