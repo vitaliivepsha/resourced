@@ -7,7 +7,10 @@ add_theme_support( 'post-thumbnails' );
 //remove_filter('the_content', 'wpautop');
 
 register_nav_menus(array(
-    'header-menu'     => 'Header menu',
+    'header-menu'     => 'Header Menu',
+    'footer-menu1'     => 'Footer Menu 1',
+    'footer-menu2'     => 'Footer Menu 2',
+    'footer-menu3'     => 'Footer Menu 3',
 ));
 
 function res_get_menu_id($location){

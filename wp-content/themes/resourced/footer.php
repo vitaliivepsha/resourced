@@ -4,7 +4,13 @@
             <div class="col-md-3 col-xs-6">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_template_directory_uri() ?>/images/logo-footer.svg" class="lazy" alt="">
+                        <?php if(!is_front_page()): ?>
+                            <a href="/">
+                                <img src="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_template_directory_uri() ?>/images/logo-footer.svg" class="lazy" alt="">
+                            </a>
+                        <?php else: ?>
+                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_template_directory_uri() ?>/images/logo-footer.svg" class="lazy" alt="">
+                        <?php endif; ?>
                     </div>
                     <div class="footer-social">
                         <a href="javascript:void(0)">
@@ -28,42 +34,41 @@
 
                         </a>
                     </div>
-                    <span>© 2022 Resourced, AB.</span>
+                    <span>© <?php echo date('Y'); ?> Resourced, AB.</span>
                     <span>Made with love in Sweden</span>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="footer-col">
-                    <span>Product</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">Resource by Resourced™</a></li>
-                        <li><a href="javascript:void(0)">Pricing</a></li>
-                        <li><a href="javascript:void(0)">Supplier Database</a></li>
-                        <li><a href="javascript:void(0)">Quomoda</a></li>
-                        <li><a href="javascript:void(0)">Tariff Identifer</a></li>
-                        <li><a href="javascript:void(0)">Knowledge bank</a></li>
-                    </ul>
+                    <?php $footer_menu1 = wp_get_nav_menu_object(res_get_menu_id('footer-menu1') ); ?>
+                    <span><?php echo esc_html($footer_menu1->name)?></span>
+                    <?php
+                    wp_nav_menu( [
+                        'theme_location' => 'footer-menu1',
+                    ] );
+                    ?>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="footer-col">
-                    <span>Who we are</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">About</a></li>
-                        <li><a href="javascript:void(0)">Careers</a></li>
-                        <li><a href="javascript:void(0)">Partners</a></li>
-                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                        <li><a href="javascript:void(0)">Terms & Conditions</a></li>
-                    </ul>
+                    <?php $footer_menu2 = wp_get_nav_menu_object(res_get_menu_id('footer-menu2') ); ?>
+                    <span><?php echo esc_html($footer_menu2->name)?></span>
+                    <?php
+                    wp_nav_menu( [
+                        'theme_location' => 'footer-menu2',
+                    ] );
+                    ?>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="footer-col">
-                    <span>Get in touch</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">Join newsletter</a></li>
-                        <li><a href="javascript:void(0)">Contact us</a></li>
-                    </ul>
+                    <?php $footer_menu3 = wp_get_nav_menu_object(res_get_menu_id('footer-menu3') ); ?>
+                    <span><?php echo esc_html($footer_menu3->name)?></span>
+                    <?php
+                    wp_nav_menu( [
+                        'theme_location' => 'footer-menu3',
+                    ] );
+                    ?>
                 </div>
             </div>
         </div>
