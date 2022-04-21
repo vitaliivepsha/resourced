@@ -14,160 +14,87 @@ get_header(); ?>
         <div class="container">
             <div class="main-content row">
                 <div class="main-content-about col-md-5 col-lg-4">
-                    <span>The way to&nbsp;develop products for modern brands</span>
-                    <p>Start focusing on the product, not excel management.</p>
-                    <a class="btn" href="javascript:void(0)">Show me how</a>
+                    <span><?php the_field('main_title'); ?></span>
+                    <p><?php the_field('main_subtitle'); ?></p>
+                    <a class="btn" href="<?php the_field('main_button'); ?>">Show me how</a>
                 </div>
                 <div class="main-content-pic col-md-7 col-lg-8">
                     <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/main-pic.webp" class="lazy-web"
+                        <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/main-pic.webp" class="lazy-web"
                                 type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_template_directory_uri() ?>/images/main-pic.jpg" class="lazy-web"
-                                type="image/jpg">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_template_directory_uri() ?>/images/main-pic.jpg" class="lazy" alt="">
+                        <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.jpg" data-original="<?php /*echo get_template_directory_uri() */?>/images/main-pic.jpg" class="lazy-web"
+                                type="image/jpg">-->
+                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_field('main_image')['url']; ?>" class="lazy" alt="">
                     </picture>
                 </div>
             </div>
         </div>
     </div>
-    <div class="section partners-section">
-        <div class="container">
-            <ul>
-                <li>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-01.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-01.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-01.png" class="lazy"
-                             alt="">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-02.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-02.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-02.png" class="lazy"
-                             alt="">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-03.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-03.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-03.png" class="lazy"
-                             alt="">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-04.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-04.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/partners-04.png" class="lazy"
-                             alt="">
-                    </picture>
-                </li>
-            </ul>
+    <?php $brands = get_field('brands'); ?>
+    <?php if( ! empty( $brands ) ): ?>
+        <div class="section partners-section">
+            <div class="container">
+                <ul>
+                    <?php foreach( $brands as $brand ): ?>
+                        <li>
+                            <picture>
+                                <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/partners/partners-01.webp"
+                                        class="lazy-web" type="image/webp">
+                                <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/partners/partners-01.png"
+                                        class="lazy-web" type="image/png">-->
+                                <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $brand['url'] ?>" class="lazy"
+                                     alt="">
+                            </picture>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
-
-    </div>
+    <?php endif; ?>
     <div class="section idea-section">
         <div class="container">
             <div class="idea-top">
-                <h2>From idea to product in a nice breeze</h2>
-                <span>A complete process to build a product</span>
+                <h2><?php the_field('prod_title'); ?></h2>
+                <span><?php the_field('prod_subtitle'); ?></span>
             </div>
-            <div class="idea-inner">
-                <div class="idea-slider-wrapper">
-                    <div class="idea-slider-path slick-slider" data-slick='{
-              "slidesToShow": 4, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true,"asNavFor": ".idea-slider-step", "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 4000,
-						 "responsive": [ {"breakpoint":992, "settings": {"slidesToShow": 2}},  
-                  {"breakpoint":860, "settings": {"slidesToShow": 2}},
-                  {"breakpoint":576, "settings": {"slidesToShow": 1}} ]}'>
-                        <div class="slide">
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/idea-01.svg" alt="">
-                            </div>
-                            <span class="slide-name">Idea</span>
+            <?php $steps = get_field('prod_process'); ?>
+            <?php if( ! empty( $steps ) ): ?>
+                <div class="idea-inner">
+                    <div class="idea-slider-wrapper">
+                        <div class="idea-slider-path slick-slider" data-slick='{
+                  "slidesToShow": 4, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true,"asNavFor": ".idea-slider-step", "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 4000,
+                             "responsive": [ {"breakpoint":992, "settings": {"slidesToShow": 2}},
+                      {"breakpoint":860, "settings": {"slidesToShow": 2}},
+                      {"breakpoint":576, "settings": {"slidesToShow": 1}} ]}'>
+                            <?php foreach( $steps as $i=>$step ): ?>
+                                <div class="slide<?php echo $i == (count( $steps ) - 1) ? ' slide-last' : '' ?>">
+                                    <div class="slide-pic">
+                                        <img src="<?php echo $step['step']['icon']['url']; ?>" alt="">
+                                    </div>
+                                    <span class="slide-name"><?php echo $step['step']['name']; ?></span>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="slide">
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/idea-02.svg" alt="">
-                            </div>
-                            <span class="slide-name">In development</span>
-                        </div>
-                        <div class="slide">
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/idea-03.svg" alt="">
-                            </div>
-                            <span class="slide-name">Ready to order</span>
-                        </div>
-                        <div class="slide slide-last">
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/idea-04.svg" alt="">
-                            </div>
-                            <span class="slide-name">Shipment</span>
+                    </div>
+                    <div class="idea-slider-wrapper">
+                        <div class="idea-slider-step slick-slider" data-slick='{
+                  "slidesToShow": 1, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true, "asNavFor": ".idea-slider-path", "fade": true, "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 4000
+                }'>
+                            <?php foreach( $steps as $i=>$step ): ?>
+                                <div class="slide">
+                                    <div class="slide-about">
+                                        <span><?php echo $step['step']['title']; ?></span>
+                                        <?php echo $step['step']['text']; ?>
+                                    </div>
+                                    <div class="slide-pic">
+                                        <img src="<?php echo $step['step']['image']['url']; ?>" alt="">
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
-                <div class="idea-slider-wrapper">
-                    <div class="idea-slider-step slick-slider" data-slick='{
-              "slidesToShow": 1, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true, "asNavFor": ".idea-slider-path", "fade": true, "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 4000
-            }'>
-                        <div class="slide">
-                            <div class="slide-about">
-                                <span>Refine gradually</span>
-                                <p>
-                                    As ideas grow step-by-step Resourced invites you to a flexible approach where you add info in your
-                                    pace.
-                                </p>
-                                <p>We´ve killed mandatory field filling.</p>
-                            </div>
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/pic-01.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="slide-about">
-                                <span>Furthering your products</span>
-                                <p>Get out there, engage with suppliers and define your product.</p>
-                                <p>You can count on Resourced to keep track of timelines, comments, notes and documents and always
-                                    keep them close.</p>
-                            </div>
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/pic-02.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="slide-about">
-                                <span>Specs made easy</span>
-                                <p>Ever dreamt of being able to consistently specify what you´ve decided to order.</p>
-                                <p>Bill of Material, material library, costing, planning and order placement at your finger tips.</p>
-                            </div>
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/pic-03.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="slide-about">
-                                <span>Production transparency</span>
-                                <p>Gone are the days of placing an order and hoping for it to be shipped as agreed.</p>
-                                <p>By smart, yet straight forward, chain of communication and supplier involvement your whole team
-                                    will have full insight in the production status (and much more).</p>
-                            </div>
-                            <div class="slide-pic">
-                                <img src="<?php echo get_template_directory_uri() ?>/images/pic-04.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="section developers-section">
@@ -199,6 +126,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
+
     <div class="section review-section">
         <div class="container">
             <div class="review-slider slick-slider" data-slick='{
