@@ -152,7 +152,7 @@ get_header(); ?>
         </div>
     <?php endif; ?>
     <div class="section library-section">
-        <?php $circle = get_field('sol_circle'); ?>
+        <?php $circle = get_field('sol_circle', 'option'); ?>
         <?php if( ! empty( $circle ) ): ?>
             <div class="library-bg">
                 <img src="<?php echo get_template_directory_uri() ?>/images/qw.svg" alt="">
@@ -160,11 +160,11 @@ get_header(); ?>
                     <div class="centra">
                         <span>
                           <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-centra.webp"
+                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-centra.webp"
                                     class="lazy-web" type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-centra.png"
-                                    class="lazy-web" type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-centra.png" class="lazy"
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-centra.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $circle['outer']['outer_1']['url']; ?>" class="lazy"
                                  alt="">
                           </picture>
                         </span>
@@ -172,22 +172,22 @@ get_header(); ?>
                     <div class="ms">
                         <span>
                           <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-ms.webp"
+                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-ms.webp"
                                     class="lazy-web" type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-ms.png"
-                                    class="lazy-web" type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-ms.png" class="lazy" alt="">
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-ms.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $circle['outer']['outer_2']['url']; ?>" class="lazy" alt="">
                           </picture>
                         </span>
                     </div>
                     <div class="sap">
                 <span>
                   <picture>
-                    <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-sap.webp"
+                    <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-sap.webp"
                             class="lazy-web" type="image/webp">
-                    <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-sap.png"
-                            class="lazy-web" type="image/png">
-                    <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-sap.png" class="lazy"
+                    <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-sap.png"
+                            class="lazy-web" type="image/png">-->
+                    <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $circle['outer']['outer_3']['url']; ?>" class="lazy"
                          alt="">
                   </picture>
                 </span>
@@ -197,11 +197,11 @@ get_header(); ?>
                     <div class="shopify">
                         <span>
                           <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-shopify.webp"
+                            <!--source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-shopify.webp"
                                     class="lazy-web" type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-shopify.png"
-                                    class="lazy-web" type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-shopify.png" class="lazy"
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-shopify.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $circle['inner']['inner_1']['url']; ?>" class="lazy"
                                  alt="">
                           </picture>
                         </span>
@@ -209,11 +209,11 @@ get_header(); ?>
                     <div class="madden">
                         <span>
                           <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-madden.webp"
+                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-madden.webp"
                                     class="lazy-web" type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-madden.png"
-                                    class="lazy-web" type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-madden.png" class="lazy"
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-madden.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $circle['inner']['inner_2']['url']; ?>" class="lazy"
                                  alt="">
                           </picture>
                         </span>
@@ -221,11 +221,11 @@ get_header(); ?>
                     <div class="b-come">
                 <span>
                   <picture>
-                    <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-b-come.webp"
+                    <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-b-come.webp"
                             class="lazy-web" type="image/webp">
-                    <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-b-come.png"
-                            class="lazy-web" type="image/png">
-                    <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/orbits/orbits-b-come.png" class="lazy"
+                    <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-b-come.png"
+                            class="lazy-web" type="image/png">-->
+                    <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $circle['inner']['inner_3']['url']; ?>" class="lazy"
                          alt="">
                   </picture>
                 </span>
