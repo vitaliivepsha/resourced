@@ -125,7 +125,7 @@ module.exports = function (_path, ENV) {
         };
 
         webpackConfig.module.loaders[webpackConfig.module.loaders.length] = {
-            test: /\.(css|ico|png|webp)$/i,
+            test: /\.(css|ico|png|webp|mp4)$/i,
             loaders: [
                 'url-loader?limit=4096&context=' +
                 rootAssetPath +
@@ -170,6 +170,7 @@ module.exports = function (_path, ENV) {
                 'image-webpack-loader?{optimizationLevel: 8, interlaced: false, pngquant:{quality: "80-90", speed: 4}, mozjpeg: {quality: 80}}'
             ]
         };
+
     } else {
         webpackConfig.cache = true;
         webpackConfig.devtool = 'eval';
