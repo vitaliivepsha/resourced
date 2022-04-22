@@ -80,4 +80,8 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Contacts',
         'parent_slug' => $options['menu_slug'],
     ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Blocks',
+        'parent_slug' => $options['menu_slug'],
+    ));
 }
