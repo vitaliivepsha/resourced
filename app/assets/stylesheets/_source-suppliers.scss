@@ -482,6 +482,7 @@ pointer-events: none;
     & label {
       width: 41px;
       margin-bottom: 0;
+      right: -1px;
       border-radius: 7px;
      background-color: $accent-dark;
      cursor: pointer;
@@ -524,6 +525,7 @@ pointer-events: none;
         right: 0;
       }
       & >.options {
+        border-radius: 7px;
         // padding: 5px 0;
         &::-webkit-scrollbar {
           overflow-y: scroll;
@@ -555,9 +557,15 @@ pointer-events: none;
             font-weight: 500;
             font-size: 16px;
           }
+          &.opt{
+            border-radius: 7px;
+            &:first-child, &:last-child{
+              border-radius: 7px;
+            }
+          }
           &.opt.disabled {
-          display: none !important;
-        }
+            display: none !important;
+          }
         }
       }
     }

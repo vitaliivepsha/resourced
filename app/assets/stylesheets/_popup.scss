@@ -350,9 +350,8 @@
   padding: 50px 10px !important;
   max-height: 100vh;
   overflow: auto;
-  border-radius: 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
+  border-radius: 10px;
   .swal2-title{
     font-family: $default !important;
     font-weight: 500;
@@ -412,4 +411,40 @@
 
 .swal2-icon{
   display: none !important;
+}
+
+.bigger-needs__popup{
+  background-color: #fff;
+  width: 470px;
+  max-width: calc(100vw - 18px);
+  margin: 0 auto;
+  border: 2px solid #B672F5;
+  box-sizing: border-box;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 36px 20px 30px;
+  text-align: center;
+  position: relative;
+  .mfp-close{
+    display: none;
+  }
+  .btn{
+    width: 156px;
+    margin: 0 auto;
+  }
+}
+
+.bigger-needs__popup-title{
+  display: block;
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 36px;
+  margin-bottom: 20px;
+}
+
+.bigger-needs__popup-descr{
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  margin-bottom: 20px;
 }

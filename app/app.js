@@ -197,51 +197,51 @@ $(function () {
                 range_val2.update({
                     from: 10
                 });
-                $range_handle2.css('left', '0.433612%');
-                $range_single2.css('left', '-13.3764%');
-                $range_bar2.css('width', '2.27863%');
+                $range_handle2.css('left', '0.346855%');
+                $range_single2.css('left', '-13.0295%');
+                $range_bar2.css('width', '2.19187%');
             }
             if ($(this).hasClass('plan2')) {
                 range_val1.update({
                     from: 30
                 });
-                $range_handle1.css('left', '3.99569%');
-                $range_single1.css('left', '-9.38069%');
-                $range_bar1.css('width', '5.84071%');
+                $range_handle1.css('left', '2.79859%');
+                $range_single1.css('left', '-10.5778%');
+                $range_bar1.css('width', '4.6436%');
                 range_val2.update({
                     from: 100
                 });
-                $range_handle2.css('left', '4.76973%');
-                $range_single2.css('left', '-8.60666%');
-                $range_bar2.css('width', '6.61475%');
+                $range_handle2.css('left', '3.8154%');
+                $range_single2.css('left', '-9.56098%');
+                $range_bar2.css('width', '5.66042%');
             }
             if ($(this).hasClass('plan3')) {
                 range_val1.update({
                     from: 400
                 });
-                $range_handle1.css('left', '54.9752%');
-                $range_single1.css('left', '41.5988%');
-                $range_bar1.css('width', '56.8202%');
+                $range_handle1.css('left', '38.5047%');
+                $range_single1.css('left', '25.1283%');
+                $range_bar1.css('width', '40.3497%');
                 range_val2.update({
                     from: 400
                 });
-                $range_handle2.css('left', '19.2234%');
-                $range_single2.css('left', '5.84707%');
-                $range_bar2.css('width', '21.0685%');
+                $range_handle2.css('left', '15.3772%');
+                $range_single2.css('left', '2.00084%');
+                $range_bar2.css('width', '17.2222%');
             }
             if ($(this).hasClass('plan4')) {
                 range_val1.update({
                     from: 700
                 });
-                $range_handle1.css('left', '96.31%');
-                $range_single1.css('left', '82.9336%');
-                $range_bar1.css('width', '98.155%');
+                $range_handle1.css('left', '67.4556%');
+                $range_single1.css('left', '54.0792%');
+                $range_bar1.css('width', '69.3006%');
                 range_val2.update({
                     from: 2000
                 });
-                $range_handle2.css('left', '96.31%');
-                $range_single2.css('left', '82.9336%');
-                $range_bar2.css('width', '98.155%');
+                $range_handle2.css('left', '77.0403%');
+                $range_single2.css('left', '63.6639%');
+                $range_bar2.css('width', '78.8853%');
             }
             $('#pricing-range1').closest('.pricing-range__item')
                 .find('.irs--flat.pricing-range__visualisation').css('opacity', 1);
@@ -268,7 +268,7 @@ $(function () {
         $('#pricing-range1').ionRangeSlider({
             type: 'single',
             min: 1,
-            max: 700,
+            max: 999,
             postfix: ' products planned in a year',
             prettify: function (num) {
                 num = Math.round(num);
@@ -284,7 +284,7 @@ $(function () {
         $('#pricing-range2').ionRangeSlider({
             type: 'single',
             min: 1,
-            max: 2000,
+            max: 2500,
             prettify: function (num) {
                 if (num < 999) {
                     num = Math.round(num);
@@ -330,6 +330,15 @@ $(function () {
                 $range_handle1.attr('style', range_handle1_pos);
                 $range_single1.attr('style', range_single1_pos);
                 $range_bar1.attr('style', range_bar1_pos);
+
+                if (finish_val1 > 998 && finish_val2 > 2499) {
+                    $.magnificPopup.open({
+                        items: {
+                            src: '#bigger-needs'
+                        },
+                        mainClass: 'mfp-zoom-in'
+                    });
+                }
             }
         });
     }
@@ -367,6 +376,15 @@ $(function () {
                 $range_handle2.attr('style', range_handle2_pos);
                 $range_single2.attr('style', range_single2_pos);
                 $range_bar2.attr('style', range_bar2_pos);
+
+                if (finish_val1 > 998 && finish_val2 > 2499) {
+                    $.magnificPopup.open({
+                        items: {
+                            src: '#bigger-needs'
+                        },
+                        mainClass: 'mfp-zoom-in'
+                    });
+                }
             }
         });
     }
