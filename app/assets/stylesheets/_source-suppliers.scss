@@ -1,3 +1,7 @@
+.source-suppliers {
+  background-color: #F8F7FA;
+}
+
 .source-main {
   position: relative;
   overflow: hidden;
@@ -78,7 +82,7 @@
       width: 25px;
       height: 24px;
       min-height: 24px;
-      border-radius: 6px;
+      border-radius: 7px;
       margin-top: 45px;
     }
   
@@ -91,7 +95,7 @@
         width: 114px;
         height: 28px;
         min-height: 28px;
-        border-radius: 21px;
+        border-radius: 7px;
         font-size: 16px;
       }
     }
@@ -162,11 +166,10 @@
     background-color: $accent-dark;
     font-weight: 500;
     font-size: 20px;
-    line-height: 140%;
     line-height: 1;
     margin: 0 auto;
     padding: 0;
-  color: #fff;
+    color: #fff;
     & svg {
       display: none;
   
@@ -180,7 +183,7 @@
       width: 25px;
       height: 24px;
       min-height: 24px;
-      border-radius: 6px;
+      border-radius: 7px;
       margin-top: 45px;
     }
   
@@ -193,7 +196,7 @@
         width: 114px;
         height: 28px;
         min-height: 28px;
-        border-radius: 21px;
+        border-radius: 7px;
         font-size: 16px;
       }
     }
@@ -672,7 +675,7 @@ pointer-events: none;
       width: 25px;
       height: 24px;
       min-height: 24px;
-      border-radius: 6px;
+      border-radius: 7px;
       margin-top: 45px;
     }
     &:hover{
@@ -683,7 +686,7 @@ pointer-events: none;
         width: 114px;
         height: 28px;
         min-height: 28px;
-        border-radius: 21px;
+        border-radius: 7px;
         font-size: 16px;
       }
     }
@@ -755,7 +758,7 @@ pointer-events: none;
   position: relative;
   background-color: $accent-dark;
   box-shadow: inset -2.17696px 0.96754px 0.96754px rgba(0, 0, 0, 0.25), inset 2.17696px 0.96754px 0.96754px rgba(0, 0, 0, 0.25), inset 0px 1.93508px 0.96754px rgba(0, 0, 0, 0.25), inset 0px -2.17696px 0.241885px rgba(0, 0, 0, 0.25);
-  border-radius: 22px;
+  border-radius: 7px;
   width: 230px;
   height: 92px;
   display: flex;
@@ -970,6 +973,7 @@ pointer-events: none;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #fff;
         &:before{
           position: absolute;
           content: '';
@@ -1097,7 +1101,7 @@ pointer-events: none;
     width: 66px;
     height: 28px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    border-radius: 7px;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -1268,9 +1272,11 @@ pointer-events: none;
   border: 1px solid #000;
   box-shadow: inset 0 1.43768px 2.87535px rgba(0, 0, 0, 0.25);
   border-radius: 7px;
+  background-color: #fff;
   >.input{
     width: 100%;
     border: none;
+    border-radius: 7px;
     background-color: transparent;
     font-family: $Montserrat;
     font-weight: 500;
@@ -1357,7 +1363,8 @@ pointer-events: none;
       }
       > .options {
         max-height: 155px;
-        &::-webkit-scrollbar {
+        overflow: hidden;
+        /*&::-webkit-scrollbar {
           overflow-y: scroll;
           background: transparent;
           width: 6px;
@@ -1370,7 +1377,7 @@ pointer-events: none;
           box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.25);
           transition: linear .2s;
           cursor: grab;
-        }
+        }*/
         li {
           &.opt {
             font-family: $Montserrat;
@@ -1476,7 +1483,7 @@ pointer-events: none;
   border: 1px solid #000;
   box-shadow: inset 0 1.43768px 2.87535px rgba(0, 0, 0, 0.25);
   border-radius: 7px;
-  background-color: transparent;
+  background-color: #fff;
   font-weight: 500;
   font-size: 20px;
   line-height: 150%;

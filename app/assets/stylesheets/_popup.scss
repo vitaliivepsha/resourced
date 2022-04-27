@@ -43,7 +43,7 @@
   background: #1B0D87;
   padding: 25px 45px 18px;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   @include bp(md){
     padding: 25px 25px 20px;
@@ -173,7 +173,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 7px;
   overflow: hidden;
   img{
     max-width: 100%;
@@ -293,7 +293,7 @@
   .contact-form__inner{
     position: static;
     padding: 32px 30px;
-    border-radius: 8px;
+    border-radius: 7px;
     @include bp(xs){
       padding: 30px 15px 20px;
     }
@@ -306,7 +306,7 @@
     color: $black;
   }
   & .btn {
-    border-radius: 11px;
+    border-radius: 7px;
     background-color: $blue !important;
     &:hover {
       background-color: $accent-dark !important;
@@ -351,7 +351,7 @@
   max-height: 100vh;
   overflow: auto;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 7px;
   .swal2-title{
     font-family: $default !important;
     font-weight: 500;
@@ -421,7 +421,7 @@
   border: 2px solid #B672F5;
   box-sizing: border-box;
   box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25);
-  border-radius: 16px;
+  border-radius: 7px;
   padding: 36px 20px 30px;
   text-align: center;
   position: relative;

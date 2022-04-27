@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/solution.html');
     require('./assets/templates/layouts/about.html');
     require('./assets/templates/layouts/pricing.html');
+    require('./assets/templates/layouts/pricing-popup.html');
     require('./assets/templates/layouts/contact.html');
     require('./assets/templates/layouts/policy.html');
     require('./assets/templates/layouts/terms.html');
@@ -35,6 +36,7 @@ require('../node_modules/sumoselect/jquery.sumoselect.min.js');
 require('../node_modules/select2/dist/js/select2.min');
 require('../node_modules/ion-rangeslider/js/ion.rangeSlider');
 import Dropzone from 'dropzone';
+let swal = require('sweetalert2');
 
 // Stylesheet entrypoint
 require('_stylesheets/app.scss');
@@ -147,6 +149,29 @@ $(function () {
 
     $('.mobile-menu .has-children > span').click(function () {
         $(this).closest('li').toggleClass('open').find('.submenu').slideToggle();
+    });
+
+    // pause slider on main
+
+    var $pause_slider = $('.idea-slider-wrapper .slick-slider');
+    $('.idea-slider-step').click(function () {
+        $pause_slider.toggleClass('paused');
+        if ($pause_slider.hasClass('paused')){
+            $('.idea-slider-step').slick('slickPause');
+        }
+        else{
+            $('.idea-slider-step').slick('slickPlay');
+        }
+    });
+    $('.idea-slider-path').click(function () {
+        $pause_slider.removeClass('paused');
+        $('.idea-slider-step').slick('slickPlay');
+    });
+
+    // reviews slider navigation
+
+    $('.review-slider .slick-slide').click(function () {
+        $('.review-slider').slick('slickNext');
     });
 
     // select
@@ -269,7 +294,7 @@ $(function () {
             type: 'single',
             min: 1,
             max: 999,
-            postfix: ' products planned in a year',
+            postfix: ' products planned per year',
             prettify: function (num) {
                 num = Math.round(num);
                 return num;
@@ -288,10 +313,10 @@ $(function () {
             prettify: function (num) {
                 if (num < 999) {
                     num = Math.round(num);
-                    return num + 'k products planned in a year';
+                    return num + 'k units planned per year';
                 } else {
                     num = Math.round(num / 1000);
-                    return num + 'M products planned in a year';
+                    return num + 'M units planned per year';
                 }
             }
         });
@@ -408,7 +433,21 @@ $(function () {
     // upload files
 
     if ($('#dropzone').length) {
-        const dropZone = new Dropzone('#dropzone');
+        const dropZone = new Dropzone('#dropzone',{
+            maxFiles: 5,
+            accept: function(file, done) {
+                console.log("uploaded");
+                done();
+            },
+            init: function() {
+                this.on("addedfile", function(event) {
+                    while (this.files.length > this.options.maxFiles) {
+                        this.removeFile(this.files[0]);
+                        alert("You can add up to 5 files!");
+                    }
+                });
+            }
+        });
         var dropArea = $(document);
         var dropWindow = $('.drop-window');
 
@@ -1136,5 +1175,8 @@ $(function () {
 
     $('.swal2-modal.swal2-styled.swal2-cancel').css('background-color', 'red');
 
+    if($('.pricing-popup-page').length){
+        swal("Thank you", "We’ll be in touch with an update shortly.", "success");
+    }
 });
 
