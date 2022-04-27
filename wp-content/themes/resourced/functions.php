@@ -38,6 +38,7 @@ add_action( 'init', function() {
     if ( isset( $_GET['post'] ) && in_array(get_page_template_slug( $_GET['post'] ),
             array(
              'page-main.php',
+             'page-about.php',
             ) ) ) {
         remove_post_type_support( 'page', 'editor' );
     }
@@ -46,9 +47,10 @@ add_action( 'init', function() {
 
 add_action( 'wp_enqueue_scripts', 'res_enqueue_scripts');
 function res_enqueue_scripts(){
+    //wp_enqueue_script('jquery');
     wp_enqueue_script('vendor-js', get_template_directory_uri() . '/assets/js/vendors.js');
     wp_enqueue_script('app', get_template_directory_uri() . '/app.js');
-   // wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', array(), false, true);
+    //wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', array(), false, true);
     wp_enqueue_style('css', get_template_directory_uri() . '/assets/css/application.css');
     wp_enqueue_style('custom', get_template_directory_uri() . '/assets/css/custom.css');
 }

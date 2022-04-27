@@ -23,7 +23,7 @@ $validateBackground: #000 !default;
 $validateColor: #fff !default;
 
 .pbz_form:not(.clear-styles){
-  border: $formBorder;
+ /* border: $formBorder;
   border-radius: $formBorderRadius;
   text-align: $formTestAlign;
   padding: $formPadding;
@@ -49,13 +49,13 @@ $validateColor: #fff !default;
       padding: $submitPadding;
     }
   }
-
-  textarea{
+*/
+ /* textarea{
     border: $inputBorder;
     border-radius: $inputBorderRadius;
     width: $inputWidth;
     display: $inputDisplay;
-  }
+  }*/
 }
 
 .validate-error{
