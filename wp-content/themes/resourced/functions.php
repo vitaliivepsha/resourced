@@ -39,6 +39,7 @@ add_action( 'init', function() {
             array(
              'page-main.php',
              'page-about.php',
+             'page-contact.php',
             ) ) ) {
         remove_post_type_support( 'page', 'editor' );
     }
