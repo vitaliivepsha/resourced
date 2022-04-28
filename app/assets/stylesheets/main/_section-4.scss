@@ -50,7 +50,8 @@
     }
   }
   & .developers-mid {
-    margin-bottom: 64px;
+    max-width: 1120px;
+    margin: 0 auto 64px;
     @media (max-width: 991px) {
       margin-bottom: 30px;
     }

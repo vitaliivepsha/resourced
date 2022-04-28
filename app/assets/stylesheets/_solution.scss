@@ -76,20 +76,18 @@
 }
 
 .solution-main-bot {
-  padding-left: 15px;
-  padding-top: 75px;
-  padding-bottom: 106px;
+  padding: 85px 15px;
   background-color: $lawender2;
   & .container {
     @media (min-width: 1440px) and (max-width: 1512px) {
       width: 1150px;
     }
   }
-  @media (max-width: 991px) {
-    padding-right: 15px;
+  @media (max-width: 767px) {
+    padding: 65px 0;
   }
   @media (max-width: 574px) {
-    padding-bottom: 60px;
+    padding: 40px 0;
   }
 
   & .inner {

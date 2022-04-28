@@ -20,8 +20,15 @@
     }
   }
   &__pricing {
-    background-color: #fff;
-    .header-main-nav {
+    background: rgba(255, 255, 255, 0.04);
+    .header-main-logo{
+      a{
+        img{
+          display: block;
+        }
+      }
+    }
+    /*.header-main-nav {
       li {
         &.has-children {
           > a {
@@ -59,7 +66,7 @@
           background: $accent-dark;
         }
       }
-    }
+    }*/
     &.fixed {
       .header-main-nav {
         li {
