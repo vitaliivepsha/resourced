@@ -13,19 +13,15 @@ get_header(); ?>
         </picture>
         <div class="container">
             <div class="main-content row">
-                <div class="main-content-about col-md-5 col-lg-4">
+                <div class="main-content-about col-md-12 col-lg-4">
                     <span><?php the_field('main_title'); ?></span>
                     <p><?php the_field('main_subtitle'); ?></p>
                     <a class="btn" href="<?php the_field('main_button'); ?>">Show me how</a>
                 </div>
-                <div class="main-content-pic col-md-7 col-lg-8">
-                    <picture>
-                        <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/main-pic.webp" class="lazy-web"
-                                type="image/webp">
-                        <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.jpg" data-original="<?php /*echo get_template_directory_uri() */?>/images/main-pic.jpg" class="lazy-web"
-                                type="image/jpg">-->
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.jpg" data-original="<?php echo get_field('main_image')['url']; ?>" class="lazy" alt="">
-                    </picture>
+                <div class="main-content-pic col-md-12 col-lg-8">
+                    <video class="main-video" muted="" loop="" autoplay="">
+                        <source src="<?php echo get_field('main_video')['url']; ?>" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
@@ -62,7 +58,7 @@ get_header(); ?>
                 <div class="idea-inner">
                     <div class="idea-slider-wrapper">
                         <div class="idea-slider-path slick-slider" data-slick='{
-                  "slidesToShow": 4, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true,"asNavFor": ".idea-slider-step", "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 4000,
+                  "slidesToShow": 4, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true,"asNavFor": ".idea-slider-step", "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 3000,
                              "responsive": [ {"breakpoint":992, "settings": {"slidesToShow": 2}},
                       {"breakpoint":860, "settings": {"slidesToShow": 2}},
                       {"breakpoint":576, "settings": {"slidesToShow": 1}} ]}'>
@@ -78,7 +74,7 @@ get_header(); ?>
                     </div>
                     <div class="idea-slider-wrapper">
                         <div class="idea-slider-step slick-slider" data-slick='{
-                  "slidesToShow": 1, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true, "asNavFor": ".idea-slider-path", "fade": true, "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 4000
+                  "slidesToShow": 1, "slidesToScroll": 1,"arrows": false, "dots": false, "infinite": true, "asNavFor": ".idea-slider-path", "fade": true, "focusOnSelect": true, "autoplay": true, "autoplaySpeed": 3000
                 }'>
                             <?php foreach( $steps as $i=>$step ): ?>
                                 <div class="slide">
@@ -103,13 +99,10 @@ get_header(); ?>
                 <h2><?php the_field('get_title'); ?></h2>
                 <p><?php the_field('get_subtitle'); ?></p>
             </div>
-            <div class="developers-mid row">
-                <div class="col-md-6">
-                    <?php echo get_field('get_text')['left']; ?>
-                </div>
-                <div class="col-md-6">
-                    <?php echo get_field('get_text')['right']; ?>
-                </div>
+            <div class="developers-mid">
+                <p>
+                    <?php the_field('get_textarea'); ?>
+                </p>
             </div>
             <div class="developers-bot">
                 <span><?php the_field('get_button_title');?></span>
@@ -121,9 +114,10 @@ get_header(); ?>
     <?php $testimonials = get_field('testimonials'); ?>
     <?php if( ! empty( $testimonials ) ): ?>
         <div class="section review-section">
+            <!-- "autoplay": true, -->
             <div class="container">
                 <div class="review-slider slick-slider" data-slick='{
-                  "slidesToShow": 1, "slidesToScroll": 1,"arrows": false, "autoplay": true, "dots": true, "adaptiveHeight": true, "infinite": true, "fade": true, "focusOnSelect": true, "autoplaySpeed": 3000
+                  "slidesToShow": 1, "slidesToScroll": 1,"arrows": false, "dots": true, "adaptiveHeight": true, "infinite": true, "fade": true, "focusOnSelect": true, "autoplaySpeed": 3000
                 }'>
                     <?php foreach( $testimonials as $testimonial ): ?>
                         <div class="slide">
@@ -139,6 +133,16 @@ get_header(); ?>
                                 </div>
                             </div>
                             <div class="slide-text">
+                                <div class="slide-text-logo">
+                                    <picture>
+                                        <!--<source srcset="../../images/pixel.webp" data-original="../../images/review-slide-logo-01.webp"
+                                                class="lazy-web" type="image/webp">
+                                        <source srcset="../../images/pixel.png" data-original="../../images/review-slide-logo-01.png"
+                                                class="lazy-web" type="image/png">-->
+                                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $testimonial['logo']['url']; ?>" class="lazy"
+                                             alt="">
+                                    </picture>
+                                </div>
                                 <p><?php echo $testimonial['text']; ?></p>
                                 <div class="slide-text-author">
                                     <span><?php echo $testimonial['name']; ?></span>
@@ -169,7 +173,7 @@ get_header(); ?>
                           </picture>
                         </span>
                     </div>
-                    <div class="ms">
+                    <div class="ms2">
                         <span>
                           <picture>
                             <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-ms.webp"
@@ -180,7 +184,7 @@ get_header(); ?>
                           </picture>
                         </span>
                     </div>
-                    <div class="sap">
+                    <div class="extend">
                 <span>
                   <picture>
                     <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-sap.webp"
