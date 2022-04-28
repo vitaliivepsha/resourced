@@ -85,12 +85,13 @@
                 <path d="M11.011 9.93563L0.989281 0.795776" stroke="#DFDFDF" />
             </svg>
         </button>
-        <span class="signup-popup__title">We´re soon there!</span>
-        <span class="signup-popup__subtitle">just making some final touches</span>
-        <div class="signup-popup__descr">
-            <p>We will gradually let new brands in to ensure a good onboarding.</p>
-            <p>To get access please let us your details below and we´ll get in touch</p>
-        </div>
+        <span class="signup-popup__title">Full launch coming soon</span>
+        <span class="signup-popup__subtitle">Sign up and we’ll be in touch to see if early access is right for your
+      team.</span>
+        <!-- <div class="signup-popup__descr">
+          <p>We will gradually let new brands in to ensure a good onboarding.</p>
+          <p>To get access please let us your details below and we´ll get in touch</p>
+        </div> -->
         <div class="signup-popup__main">
             <div class="signup-popup__left">
                 <div class="signup-popup__info">
@@ -107,7 +108,7 @@
                 </div>
             </div>
             <form class="signup-popup__form ajax_form" data-error-title="Error!" data-error-message="Try again later"
-                  data-success-title="Thank you!" data-success-message="We´ll get back to you with an update shortly">
+                  data-success-title="Thank you" data-success-message="We’ll be in touch with an update shortly.">
                 <div class="signup-popup__form-inner">
                     <div class="input-wrapper">
                         <label>Your Name</label>
@@ -121,7 +122,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label>Phone number</label>
-                        <input class="input" name="phone" placeholder="+46 739 597929" data-title="Phone"
+                        <input class="input" name="phone" placeholder="Resourced" data-title="Phone"
                                data-validate-required="Required!">
                     </div>
                     <button type="submit">Sign me up</button>
