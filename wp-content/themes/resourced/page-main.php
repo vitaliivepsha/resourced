@@ -173,7 +173,7 @@ get_header(); ?>
                           </picture>
                         </span>
                     </div>
-                    <div class="ms">
+                    <div class="ms2">
                         <span>
                           <picture>
                             <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-ms.webp"
@@ -184,7 +184,7 @@ get_header(); ?>
                           </picture>
                         </span>
                     </div>
-                    <div class="sap">
+                    <div class="extend">
                 <span>
                   <picture>
                     <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-sap.webp"
