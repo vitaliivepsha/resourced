@@ -21,14 +21,13 @@
             <div class="header-main-logo">
                 <?php if(!is_front_page()): ?>
                     <a href="/">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy" alt="">
+                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy<?php echo !empty($args['logo_class']) ? " {$args['logo_class']}" : ''; ?>" alt="">
                     </a>
                 <?php else: ?>
                     <div>
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy" alt="">
+                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy<?php echo !empty($args['logo_class']) ? " {$args['logo_class']}" : ''; ?>" alt="">
                     </div>
                 <?php endif; ?>
-
             </div>
 
             <?php get_template_part( 'template-parts/menus/menu', 'header' ); ?>
