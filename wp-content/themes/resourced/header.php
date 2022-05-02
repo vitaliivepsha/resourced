@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@
 </head>
 
 <body>
-<header class="header">
+<header class="header<?php echo !empty($args['class']) ? " {$args['class']}" : ''; ?>">
     <div class="header-main">
         <div class="header-main-inner">
             <div class="header-main-logo">

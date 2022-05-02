@@ -79,6 +79,16 @@ module.exports = function() {
           put($(j).attr('name'), $(j).attr('value'), $(j).data('title'), $(j));
       });
 
+
+    // get text/hidden input and textarea
+    var txt = $('input[type=hidden]:enabled, input[type!=checkbox][type!=radio]:enabled', this);
+
+    $.each(txt, function(i, j) {
+      if ($(j).attr(settings.select_attr) !== undefined && $(j).not(':disabled')) {
+        put($(j).attr(settings.select_attr), $(j).val(), $(j).data('title'), $(j));
+      }
+    });
+
       // get select
       var select = $('select:enabled', this);
 
@@ -91,15 +101,6 @@ module.exports = function() {
               }
           }
       });
-
-    // get text/hidden input and textarea
-    var txt = $('input[type=hidden]:enabled, input[type!=checkbox][type!=radio]:enabled', this);
-
-    $.each(txt, function(i, j) {
-      if ($(j).attr(settings.select_attr) !== undefined && $(j).not(':disabled')) {
-        put($(j).attr(settings.select_attr), $(j).val(), $(j).data('title'), $(j));
-      }
-    });
 
     // get checkboxes
     var checkBox = $('input[type=checkbox]:enabled');
@@ -136,7 +137,7 @@ module.exports = function() {
             re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(val);
         case 'required':
-          return !(val === undefined || val.length === 0);
+          return !(val === undefined || val === null || val.length === 0);
 
           re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
           return re.test(val);
