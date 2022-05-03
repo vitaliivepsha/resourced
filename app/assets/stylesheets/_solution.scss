@@ -143,7 +143,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 6805px;
+    height: 680px;
     border-radius: 7px;
     box-shadow: 0px 100px 80px rgba(103, 29, 255, 0.07), 0px 41.7776px 33.4221px rgba(103, 29, 255, 0.053),
       0px 22.3363px 17.869px rgba(103, 29, 255, 0.0417), 0px 12.5216px 10.0172px rgba(162, 45, 255, 0.035),
@@ -511,23 +511,15 @@
 }
 
 .solution-complete__footnote{
-  position: absolute;
-  right: 34px;
-  bottom: 24px;
+  //position: absolute;
+  //right: 34px;
+  //bottom: 24px;
   font-weight: 500;
-  font-size: 31px;
-  line-height: 36px;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: -55px;
   @include bp(sm) {
-    bottom: 16px;
-    right: 30px;
-    font-size: 25px;
-    line-height: 28px;
-  }
-  @include bp(xs) {
-    bottom: 10px;
-    right: 15px;
-    font-size: 18px;
-    line-height: 21px;
+    margin-bottom: -30px;
   }
 }
 

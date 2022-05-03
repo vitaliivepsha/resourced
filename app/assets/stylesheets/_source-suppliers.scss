@@ -141,6 +141,10 @@
     font-size: 19px;
     line-height: 150%;
     text-align: center;
+    padding: 0 20px;
+    @include bp(lg) {
+      padding: 0;
+    }
   }
   >svg{
     position: absolute;
