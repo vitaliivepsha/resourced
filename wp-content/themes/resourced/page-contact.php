@@ -1,6 +1,6 @@
 <?php
 /* Template Name: Contact */
-get_header(); ?>
+get_header(null, ['class' => 'header__contact']); ?>
 
 <main class="main">
     <div class="contact-main">
@@ -97,9 +97,9 @@ get_header(); ?>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5.57805 10.9798L10.6278 15.4915C11.3882 16.1708 12.6166 16.1708 13.377 15.4915L18.4268 10.9798C19.6551 9.88233 18.7777 8.001 17.0424 8.001H6.94286C5.2076 8.001 4.34972 9.88233 5.57805 10.9798Z" fill="#671DFF"/>
                                 </svg>
-                                <input name="company_size" data-title="Company size" data-validate-required="Required!" hidden>
-                                <select class="select">
-                                    <option selected disabled>Select</option>
+                                <!--<input name="company_size" data-title="Company size" data-validate-required="Required!" hidden>-->
+                                <select name="company_size" data-title="Company size" class="select" data-validate-required="Required!">
+                                    <option selected disabled value="">Select</option>
                                     <option>5 products/10k units</option>
                                     <option>30 products/100k units</option>
                                     <option>400 products/400k units</option>

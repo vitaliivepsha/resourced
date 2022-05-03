@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,20 +15,19 @@
 </head>
 
 <body>
-<header class="header">
+<header class="header<?php echo !empty($args['class']) ? " {$args['class']}" : ''; ?>">
     <div class="header-main">
         <div class="header-main-inner">
             <div class="header-main-logo">
                 <?php if(!is_front_page()): ?>
                     <a href="/">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy" alt="">
+                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy<?php echo !empty($args['logo_class']) ? " {$args['logo_class']}" : ''; ?>" alt="">
                     </a>
                 <?php else: ?>
                     <div>
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy" alt="">
+                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/logo.svg" class="lazy<?php echo !empty($args['logo_class']) ? " {$args['logo_class']}" : ''; ?>" alt="">
                     </div>
                 <?php endif; ?>
-
             </div>
 
             <?php get_template_part( 'template-parts/menus/menu', 'header' ); ?>

@@ -40,6 +40,7 @@ add_action( 'init', function() {
              'page-main.php',
              'page-about.php',
              'page-contact.php',
+             'page-pricing.php',
             ) ) ) {
         remove_post_type_support( 'page', 'editor' );
     }
