@@ -128,6 +128,102 @@ add_shortcode( 'subscribe', function() {
 });
 
 
+add_shortcode( 'subscribe', function() {
+    $circle = get_field('sol_circle', 'option');
+    $circle_section = '<div class="section library-section">';
+    if( ! empty( $circle ) ):
+        $circle_section .= '<div class="library-bg">
+                <img src="'.get_template_directory_uri().'/images/qw.svg" alt="">
+                <div class="library-items">
+                    <div class="centra">
+                        <span>
+                          <picture>
+                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-centra.webp"
+                                    class="lazy-web" type="image/webp">
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-centra.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="'. get_template_directory_uri().'/images/pixel.png" data-original="'.$circle['outer']['outer_1']['url'].'" class="lazy"
+                                 alt="">
+                          </picture>
+                        </span>
+                    </div>
+                    <div class="ms2">
+                        <span>
+                          <picture>
+                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-ms.webp"
+                                    class="lazy-web" type="image/webp">
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-ms.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="'. get_template_directory_uri().'/images/pixel.png" data-original="'.$circle['outer']['outer_2']['url'].'" class="lazy" alt="">
+                          </picture>
+                        </span>
+                    </div>
+                    <div class="extend">
+                <span>
+                  <picture>
+                    <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-sap.webp"
+                            class="lazy-web" type="image/webp">
+                    <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-sap.png"
+                            class="lazy-web" type="image/png">-->
+                    <img src="'.get_template_directory_uri().'/images/pixel.png" data-original="'. $circle['outer']['outer_3']['url'].'" class="lazy"
+                         alt="">
+                  </picture>
+                </span>
+                    </div>
+                </div>
+                <div class="library-items library-items__sm">
+                    <div class="shopify">
+                        <span>
+                          <picture>
+                            <!--source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-shopify.webp"
+                                    class="lazy-web" type="image/webp">
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-shopify.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="'.get_template_directory_uri().'/images/pixel.png" data-original="'.$circle['inner']['inner_1']['url'].'" class="lazy"
+                                 alt="">
+                          </picture>
+                        </span>
+                    </div>
+                    <div class="madden">
+                        <span>
+                          <picture>
+                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-madden.webp"
+                                    class="lazy-web" type="image/webp">
+                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-madden.png"
+                                    class="lazy-web" type="image/png">-->
+                            <img src="'.get_template_directory_uri().'/images/pixel.png" data-original="'.$circle['inner']['inner_2']['url'].'" class="lazy"
+                                 alt="">
+                          </picture>
+                        </span>
+                    </div>
+                    <div class="b-come">
+                <span>
+                  <picture>
+                    <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-b-come.webp"
+                            class="lazy-web" type="image/webp">
+                    <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/orbits/orbits-b-come.png"
+                            class="lazy-web" type="image/png">-->
+                    <img src="'.get_template_directory_uri().'/images/pixel.png" data-original="'.$circle['inner']['inner_3']['url'].'" class="lazy"
+                         alt="">
+                  </picture>
+                </span>
+                    </div>
+                </div>
+            </div>';
+        endif;
+         $circle_section .= '<div class="container">
+            <div class="library-inner">
+                <p>'.get_field('sol_title', 'option').'</p>
+                <a href="javascript:void(0)" class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Get started</a>
+            </div>
+        </div>
+        <span>'.get_field('sol_text', 'option'). '</span>
+    </div>';
+
+    echo $circle_section;
+});
+
+
 add_action( 'init', 'res_init' );
 
 function res_init()
