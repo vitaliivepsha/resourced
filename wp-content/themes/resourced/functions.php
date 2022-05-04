@@ -70,7 +70,8 @@ function myajax_data(){
 
 add_action('admin_menu', 'remove_admin_menu');
 function remove_admin_menu() {
-   // remove_menu_page('edit-comments.php'); // Комментарии
+   remove_menu_page('edit-comments.php'); // Комментарии
+   remove_menu_page('edit.php'); // Posts
 }
 
 
@@ -88,4 +89,79 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Blocks',
         'parent_slug' => $options['menu_slug'],
     ));
+}
+
+add_shortcode( 'brands', function() {
+    $brands = get_field( 'brands', 'option' );
+    $brands_block = '<span class="pricing-partners__title">' . get_field( 'brands_title', 'option' ) . '</span>';
+
+    if( ! empty( $brands ) ):
+        $brands_block .= '<div class="pricing-partners__wrapper">';
+            foreach( $brands as $brand ):
+                $brands_block .= '<div>
+                    <picture>
+                        <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/partners/brand-01.webp"
+                                class="lazy-web" type="image/webp">
+                        <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/partners/brand-01.png"
+                                class="lazy-web" type="image/png">-->
+                        <img src="' . get_template_directory_uri() . '/images/pixel.png" data-original="' . $brand['url'] . '" class="lazy" alt="">
+                    </picture>
+                </div>';
+            endforeach;
+        $brands_block .= '</div>';
+    endif;
+
+    echo $brands_block;
+});
+
+add_shortcode( 'subscribe', function() {
+    echo '<div class="pricing-partners__subscribe">
+                <div class="pricing-partners__subscribe-txt">'.get_field( 'register_text', 'option' ).'</div>
+                <div class="pricing-partners__subscribe-form">
+                    <form class="ajax_form" action="">
+                        <input class="hidden" type="text" name="request" data-title="Request" value="Subscribe">
+                        <input type="text" name="email" data-title="Email" placeholder="Your e-mail" data-validate-email="Wrong email" data-validate-required="Required">
+                        <button type="submit" class="btn">Confirm</button>
+                    </form>
+                </div>
+            </div>';
+});
+
+
+add_action( 'init', 'res_init' );
+
+function res_init()
+{
+    $labels = array(
+        'name' => 'Subscribers',
+        'singular_name' => 'Subscriber',
+        'add_new' => 'Add new',
+        'add_new_item' => 'Add new subscriber',
+        'edit_item' => 'Edit subscriber',
+        'new_item' => 'New subscriber',
+        'view_item' => 'View subscriber',
+        'search_items' => 'Search subscriber',
+        'not_found' => 'Not found',
+        'not_found_in_trash' => 'Not found in trash',
+        'parent_item_colon' => '',
+        'menu_name' => 'Subscribers'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_ui' => null,
+        'supports' => array('title'),
+        'capabilities' => array(
+            'create_posts' => false,
+        ),
+        'query_var' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_in_nav_menus' => false,
+        'map_meta_cap' => true,
+        'menu_icon' => 'dashicons-email-alt'
+    );
+
+    register_post_type('subscriber', $args);
 }

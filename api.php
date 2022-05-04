@@ -114,6 +114,15 @@ if (array_key_exists('data', $_POST)){
         'post_status'   => 'publish',
     ));
 
+    if($data->request->val == 'Subscribe'){
+        $subscriber_id = wp_insert_post(array(
+            'post_title'    => $data->email->val,
+            'post_date'     => date('Y-m-d H:i:s'),
+            'post_type'     => 'subscriber',
+            'post_status'   => 'publish',
+        ));
+    }
+
     if(!empty($files)){
         foreach($files as $file){
             $path = $file['path'];

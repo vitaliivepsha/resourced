@@ -1,53 +1,45 @@
 <?php
 /* Template Name: Pricing */
-get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); ?>
+get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']);
+
+$plan1 = get_field('pricing_plan_1');
+$plan2 = get_field('pricing_plan_2');
+$plan3 = get_field('pricing_plan_3');
+$plan4 = get_field('pricing_plan_4');
+
+?>
 
 <main class="main">
     <div class="pricing-main">
         <div class="pricing-main__top">
             <div class="container">
-                <div class="pricing-main__title">Get in control. Start free.</div>
-                <span class="pricing-main__descr">
-            Unlimited users and data on all plans.<br>
-            Upgrade at any time.
-          </span>
+                <div class="pricing-main__title"><?php the_field('pricing_title'); ?></div>
+                <span class="pricing-main__descr"><?php the_field('pricing_subtitle'); ?></span>
                 <div class="row pricing-plans">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="pricing-plan plan1">
                             <div>
-                                <div class="title">Discover</div>
+                                <div class="title"><?php echo $plan1['name']; ?></div>
                                 <div class="price">
-                                    €0 <span>per month</span>
+                                    €<?php echo $plan1['price']; ?> <span>per month</span>
                                 </div>
-                                <div class="descr">An introduction to the tools needed to get started with PLM </div>
+                                <div class="descr"><?php echo $plan1['descr']; ?></div>
                             </div>
                             <div>
+                                <?php if(!empty($plan1['details'])): ?>
                                 <ul class="list">
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Up to 5 products or
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Up to 10k units
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Self Serve integration API
-                                    </li>
+                                    <?php foreach($plan1['details'] as $row): ?>
+                                        <li>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
+                                                <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
+                                                      stroke-linejoin="round" />
+                                            </svg>
+                                            <?php echo $row['detail'];?>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
                                 <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up Free</div>
                             </div>
                         </div>
@@ -55,39 +47,27 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="pricing-plan plan2">
                             <div>
-                                <div class="title">Curate</div>
+                                <div class="title"><?php echo $plan2['name']; ?></div>
                                 <div class="price">
-                                    €399 <span>per month</span>
+                                    €<?php echo $plan2['price']; ?> <span>per month</span>
                                 </div>
-                                <div class="descr">Comprehensive PLM tools to manage your niche or growing business</div>
+                                <div class="descr"><?php echo $plan2['descr']; ?></div>
                             </div>
                             <div>
+                                <?php if(!empty($plan2['details'])): ?>
                                 <ul class="list">
+                                    <?php foreach($plan2['details'] as $row): ?>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
                                             <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
                                                   stroke-linejoin="round" />
                                         </svg>
-                                        Up to 30 products or
+                                        <?php echo $row['detail'];?>
                                     </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Up to 100k units
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Self Serve integration API
-                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
                                 <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up</div>
                             </div>
                         </div>
@@ -95,40 +75,27 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="pricing-plan plan3">
                             <div>
-                                <div class="title">Growth</div>
+                                <div class="title"><?php echo $plan3['name']; ?></div>
                                 <div class="price">
-                                    €899 <span>per month</span>
+                                    €<?php echo $plan3['price']; ?> <span>per month</span>
                                 </div>
-                                <div class="descr">Increase agility to make quicker decisions and improve process visibility </div>
+                                <div class="descr"><?php echo $plan3['descr']; ?></div>
                             </div>
                             <div>
+                                <?php if(!empty($plan3['details'])): ?>
                                 <ul class="list">
+                                <?php foreach($plan3['details'] as $row): ?>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
                                             <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
                                                   stroke-linejoin="round" />
                                         </svg>
-                                        Up to 400 products or
+                                        <?php echo $row['detail'];?>
                                     </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Up to 400k units
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        API Integration
-                                        (fixed one time fee)
-                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
                                 <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up</div>
                             </div>
                         </div>
@@ -136,40 +103,27 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="pricing-plan plan4">
                             <div>
-                                <div class="title">Scale up</div>
+                                <div class="title"><?php echo $plan4['name']; ?></div>
                                 <div class="price">
-                                    €1899 <span>per month</span>
+                                    €<?php echo $plan4['price']; ?> <span>per month</span>
                                 </div>
-                                <div class="descr">Best for scaling businesses needing to support rapid growth</div>
+                                <div class="descr"><?php echo $plan4['descr']; ?></div>
                             </div>
                             <div>
+                                <?php if(!empty($plan4['details'])): ?>
                                 <ul class="list">
+                                <?php foreach($plan4['details'] as $row): ?>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="8" cy="8" r="7.25" stroke="#7040FF" stroke-width="1.5" />
                                             <path d="M12 5L6.5 10L4 7.72727" stroke="#7040FF" stroke-width="1.5" stroke-linecap="round"
                                                   stroke-linejoin="round" />
                                         </svg>
-                                        Up to 700 products or
+                                        <?php echo $row['detail'];?>
                                     </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#7040FF" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#7040FF" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        Up to 2M units
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="7.25" stroke="#7040FF" stroke-width="1.5" />
-                                            <path d="M12 5L6.5 10L4 7.72727" stroke="#7040FF" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                        </svg>
-                                        API Integration
-                                        (fixed one time fee)
-                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
                                 <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up</div>
                             </div>
                         </div>
@@ -181,9 +135,9 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
             <div class="container">
                 <div class="pricing-range__wrapper">
                     <div class="pricing-range__left">
-                        <span class="pricing-range__title">How many products do you manage?</span>
+                        <span class="pricing-range__title"><?php the_field('pricing_slider_title'); ?></span>
                         <div class="pricing-range__descr">
-                            Choose the number of products and units to find the right fit.
+                            <?php the_field('pricing_slider_subtitle'); ?>
                         </div>
                     </div>
                     <div class="pricing-range__right">
@@ -216,794 +170,129 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
     </div>
     <div class="pricing-features">
         <div class="container">
-            <span class="pricing-features__title">All plans feature:</span>
+            <span class="pricing-features__title"><?php the_field('pricing_cfeatures_title'); ?></span>
+            <?php $cfeatures = get_field('pricing_cfeatures'); ?>
+            <?php if(!empty($cfeatures)): ?>
             <div class="pricing-features__items">
-                <div class="pricing-features__item">
-                    <div>
-                        <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp1.webp" class="lazy-web"
-                                    type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp1.png" class="lazy-web"
-                                    type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp1.png" class="lazy" alt="">
-                        </picture>
+                <?php foreach($cfeatures as $cfeature): ?>
+                    <div class="pricing-features__item">
+                        <div>
+                            <picture>
+                               <!-- <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/icons/fp1.webp" class="lazy-web"
+                                        type="image/webp">
+                                <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/icons/fp1.png" class="lazy-web"
+                                        type="image/png">-->
+                                <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $cfeature['image']['url']; ?>" class="lazy" alt="">
+                            </picture>
+                        </div>
+                        <span><?php echo $cfeature['name']; ?></span>
+                        <p><?php echo $cfeature['descr']; ?></p>
                     </div>
-                    <span>Unlimited data</span>
-                    <p>So you can focus on your collection.</p>
-                </div>
-                <div class="pricing-features__item">
-                    <div>
-                        <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp2.webp" class="lazy-web"
-                                    type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp2.png" class="lazy-web"
-                                    type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp2.png" class="lazy" alt="">
-                        </picture>
-                    </div>
-                    <span>Unlimited users</span>
-                    <p>Get your entire organization on the same page.</p>
-                </div>
-                <div class="pricing-features__item">
-                    <div>
-                        <picture>
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp3.webp" class="lazy-web"
-                                    type="image/webp">
-                            <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp3.png" class="lazy-web"
-                                    type="image/png">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/icons/fp3.png" class="lazy" alt="">
-                        </picture>
-                    </div>
-                    <span>All modules</span>
-                    <p>No arbitrary feature stripping. You always have access to all modules.</p>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
             <div class="pricing-features__table-wrapper">
-                <span class="pricing-features__title">Features for all plans</span>
+                <span class="pricing-features__title"><?php the_field('pricing_features_title'); ?></span>
+                <?php $features = get_field('pricing_features'); ?>
                 <div class="pricing-features__table-inner">
-                    <div class="pricing-features__table">
-                        <div class="pricing-features__table-head">
-                            <div class="usage">Usage</div>
-                            <div class="free">Discover</div>
-                            <div class="startup">Curate</div>
-                            <div class="growth">Growth</div>
-                            <div class="scale_up">Scale up</div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Active products / year
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>The products you currently have in development.</div>
+                    <?php foreach($features as $i=>$feature_category): ?>
+                        <div class="pricing-features__table">
+                            <div class="pricing-features__table-head">
+                                <div class="usage"><?php    echo $feature_category['category']; ?></div>
+                                <div class="free"><?php     echo !$i ? $plan1['name'] : ''; ?></div>
+                                <div class="startup"><?php  echo !$i ? $plan2['name'] : ''; ?></div>
+                                <div class="growth"><?php   echo !$i ? $plan3['name'] : ''; ?></div>
+                                <div class="scale_up"><?php echo !$i ? $plan4['name'] : ''; ?></div>
+                            </div>
+                            <?php foreach($feature_category['features'] as $feature): ?>
+                                <div class="pricing-features__table-row">
+                                    <div class="usage">
+                                        <div class="tootip-wrapper">
+                                            <span>
+                                              <?php echo $feature['name']; ?>
+                                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
+                                                    stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
+                                                    stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
+                                                      stroke-linejoin="round" />
+                                              </svg>
+                                            </span>
+                                            <div><?php echo $feature['descr']; ?></div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    $plan1_feature = $feature['plan_1']['checkbox'];
+                                    if(!empty($plan1_feature)){
+                                        $plan1_feature = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
+                                        <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round" />
+                                    </svg>';
+                                    } else {
+                                        $plan1_feature = $feature['plan_1']['text'];
+                                    }
+
+                                    $plan2_feature = $feature['plan_2']['checkbox'];
+                                    if(!empty($plan2_feature)){
+                                        $plan2_feature = ' <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
+                                        <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                    </svg>';
+                                    } else {
+                                        $plan2_feature = $feature['plan_2']['text'];
+                                    }
+
+                                    $plan3_feature = $feature['plan_3']['checkbox'];
+                                    if(!empty($plan3_feature)){
+                                        $plan3_feature = ' <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
+                                        <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                    </svg>';
+                                    } else {
+                                        $plan3_feature = $feature['plan_3']['text'];
+                                    }
+
+                                    $plan4_feature = $feature['plan_4']['checkbox'];
+                                    if(!empty($plan4_feature)){
+                                        $plan4_feature = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
+                                        <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                    </svg>';
+                                    } else {
+                                        $plan4_feature = $feature['plan_4']['text'];
+                                    }
+                                    ?>
+                                    <div class="free"><?php echo $plan1_feature; ?></div>
+                                    <div class="startup"><?php echo $plan2_feature; ?></div>
+                                    <div class="growth"><?php echo $plan3_feature; ?></div>
+                                    <div class="scale_up"><?php echo $plan4_feature; ?></div>
                                 </div>
-                            </div>
-                            <div class="free">Up to 5</div>
-                            <div class="startup">Up to 30</div>
-                            <div class="growth">Up to 400</div>
-                            <div class="scale_up">Up to 700</div>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Units placed / year
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>The planned/placed quantity over a 12 month period across all products.</div>
-                                </div>
-                            </div>
-                            <div class="free">Up to 10 000</div>
-                            <div class="startup">Up to 100 000</div>
-                            <div class="growth">Up to 400 000</div>
-                            <div class="scale_up">Up to 2 000 000</div>
-                        </div>
-                    </div>
-                    <div class="pricing-features__table">
-                        <div class="pricing-features__table-head">
-                            <div class="usage">Features</div>
-                            <div class="free"></div>
-                            <div class="startup"></div>
-                            <div class="growth"></div>
-                            <div class="scale_up"></div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Product management
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Comprehensive product development control including tech packs, component handling, BOM, Costing, sample handling, and more.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Component handling
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Customizable library to track names, types, composition, origin, colours, suppliers and more of every component for products.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Tech Pack creator
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Coming soon! Detailed tech packs directly integrated into the sample request, shareable within the system and exportable to PDF /XCL.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Sample handling
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Coming soon! Keep track of every stage of the sampling process from first and fit sample to SMS and PPS and beyond.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Scheduling & planning
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Coming Soon! Plan your collection and orders with on-time delivery monitored and continuously saved in platform.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Order management
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Coming Soon! Monitor the entire order process with all communication saved and easily accessible within the platform.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Supplier Portal
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Coming soon! A platform-integrated supplier database to ensure you and your manufacturer are working off the same specs.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-features__table">
-                        <div class="pricing-features__table-head">
-                            <div class="usage">Integrations & Customization</div>
-                            <div class="free"></div>
-                            <div class="startup"></div>
-                            <div class="growth"></div>
-                            <div class="scale_up"></div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Self-serve API
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Your team handles API</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Customized API <small>(fixed one time fee)</small>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>We handle API and create an API suited to your needs</div>
-                                </div>
-                            </div>
-                            <div class="free"></div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Customized product hierarchy
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>We customize what product types, processes, and product related details you’d like to have integrated into your specific system</div>
-                                </div>
-                            </div>
-                            <div class="free"></div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-features__table">
-                        <div class="pricing-features__table-head">
-                            <div class="usage">Service</div>
-                            <div class="free"></div>
-                            <div class="startup"></div>
-                            <div class="growth"></div>
-                            <div class="scale_up"></div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Email and chat support
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Reach our customer support team via email and chat</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Dedicated account manager
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>A member of our customer support team will be assigned to your account</div>
-                                </div>
-                            </div>
-                            <div class="free"></div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Implementation workshops
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Together we tailor the systems to your specifications. With our guidance, define the structure and workflow to maximize efficiency
-                                        and productivity across your organization.</div>
-                                </div>
-                            </div>
-                            <div class="free"></div>
-                            <div class="startup"></div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pricing-features__table-row">
-                            <div class="usage">
-                                <div class="tootip-wrapper">
-                    <span>
-                      Onboarding and training
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.0026 14.6666C11.6845 14.6666 14.6693 11.6818 14.6693 7.99992C14.6693 4.31802 11.6845 1.33325 8.0026 1.33325C4.32071 1.33325 1.33594 4.31802 1.33594 7.99992C1.33594 11.6818 4.32071 14.6666 8.0026 14.6666Z"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M6.0625 6.00001C6.21924 5.55446 6.5286 5.17875 6.9358 4.93944C7.343 4.70012 7.82176 4.61264 8.28728 4.69249C8.7528 4.77234 9.17504 5.01436 9.47922 5.3757C9.78339 5.73703 9.94987 6.19436 9.94917 6.66668C9.94917 8.00001 7.94917 8.66668 7.94917 8.66668"
-                            stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8 11.3333H8.00667" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                                    <div>Learn the system via our online portal or tailored education delivered to the customer on-site.</div>
-                                </div>
-                            </div>
-                            <div class="free">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#979797" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#979797" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="startup">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#65CED6" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#65CED6" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="growth">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#2576BC" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#2576BC" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="scale_up">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="7.25" stroke="#5A36C7" stroke-width="1.5" />
-                                    <path d="M12 5L6.5 10L4 7.72727" stroke="#5A36C7" stroke-width="1.5" stroke-linecap="round"
-                                          stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                     <div class="pricing-features__table-footer">
                         <div class="usage"></div>
                         <div class="free">
-                            <span>Discover</span>
+                            <span><?php echo $plan1['name']; ?></span>
                             <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up Free</div>
                         </div>
                         <div class="startup">
-                            <span>Curate</span>
+                            <span><?php echo $plan2['name']; ?></span>
                             <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up</div>
                         </div>
                         <div class="growth">
-                            <span>Growth</span>
+                            <span><?php echo $plan3['name']; ?></span>
                             <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up</div>
                         </div>
                         <div class="scale_up">
-                            <span>Scale up</span>
+                            <span><?php echo $plan4['name']; ?></span>
                             <div class="btn popup-btn" data-mfp-src="#signup-popup" data-effect="mfp-zoom-in">Sign Up</div>
                         </div>
                     </div>
@@ -1015,12 +304,12 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
     </div>
     <div class="pricing-needs">
         <div class="container">
-            <span class="pricing-needs__title">Enterprise sized needs?</span>
-            <p class="pricing-needs__descr">Check out Resourced Enterprise</p>
+            <span class="pricing-needs__title"><?php the_field('pricing_enterp_title1'); ?></span>
+            <p class="pricing-needs__descr"><?php the_field('pricing_enterp_subtitle1'); ?></p>
             <div class="pricing-needs__wrapper">
                 <div class="pricing-needs__txt">
-                    <span>Resourced Enterprise</span>
-                    <p>Our powerful and inviting PLM experience scaled to enterprise-grade requirements.</p>
+                    <span><?php the_field('pricing_enterp_title2'); ?></span>
+                    <p><?php the_field('pricing_enterp_subtitle2'); ?></p>
                     <a href="javascript:void(0)" class="btn">Contact sales</a>
                 </div>
                 <div class="pricing-needs__pic">
@@ -1053,175 +342,36 @@ get_header(null, ['class' => 'header__pricing', 'logo_class' => 'logo-white']); 
     </div>
     <div class="pricing-faq">
         <div class="container">
-            <span class="pricing-faq__title">FAQ</span>
+            <span class="pricing-faq__title"><?php the_field('faq_title'); ?></span>
+            <?php $faq = get_field('faq'); ?>
+            <?php if(!empty($faq)): ?>
             <div class="pricing-faq__wrapper">
-                <div class="pricing-faq__item">
-                    <div class="pricing-faq__head">
-                        What is an active product? Can I keep track of archived products?
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
-                                fill="#815DC1" />
-                            <path
-                                d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
-                                fill="#503885" />
-                        </svg>
+                <?php foreach($faq as $item): ?>
+                    <div class="pricing-faq__item">
+                        <div class="pricing-faq__head">
+                            <?php echo $item['question']; ?>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
+                                    fill="#815DC1" />
+                                <path
+                                    d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
+                                    fill="#503885" />
+                            </svg>
+                        </div>
+                        <div class="pricing-faq__body">
+                            <?php echo $item['answer']; ?>
+                        </div>
                     </div>
-                    <div class="pricing-faq__body">
-                        <p>An active product is something currently in development. When you’ve sent your order or decide not to move forward, move the product to the archives to keep track of former styles.</p>
-                    </div>
-                </div>
-                <div class="pricing-faq__item">
-                    <div class="pricing-faq__head">
-                        What is the difference between a product and a unit?
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
-                                fill="#815DC1" />
-                            <path
-                                d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
-                                fill="#503885" />
-                        </svg>
-                    </div>
-                    <div class="pricing-faq__body">
-                        <p>A product is an idea you have in development. When you are ready to place an order, your product becomes a series of units for planned and placed orders. Units are counted by standard SKU (stock-keeping unit).</p>
-                    </div>
-                </div>
-                <div class="pricing-faq__item">
-                    <div class="pricing-faq__head">
-                        What happens if my account reaches product or unit limit?
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
-                                fill="#815DC1" />
-                            <path
-                                d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
-                                fill="#503885" />
-                        </svg>
-                    </div>
-                    <div class="pricing-faq__body">
-                        <p>Congratulations on growing your business! When you’re ready to add more products or unit orders to your account, contact us at <a href="mailto:support@resourced.com">support@resourced.com</a> to upgrade your your plan. </p>
-                    </div>
-                </div>
-                <div class="pricing-faq__item">
-                    <div class="pricing-faq__head">
-                        How many users can I invite to the system?
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
-                                fill="#815DC1" />
-                            <path
-                                d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
-                                fill="#503885" />
-                        </svg>
-                    </div>
-                    <div class="pricing-faq__body">
-                        <p>Access to your product development plan can be shared with as many users as you like.</p>
-                    </div>
-                </div>
-                <div class="pricing-faq__item">
-                    <div class="pricing-faq__head">
-                        How can I change to a different plan?
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
-                                fill="#815DC1" />
-                            <path
-                                d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
-                                fill="#503885" />
-                        </svg>
-                    </div>
-                    <div class="pricing-faq__body">
-                        <p>We are here to support the growth of your business. When you need to adjust your plan, just contact us at <a href="mailto:support@resourced.com">support@resourced.com</a> and we’ll help you find the right solution. </p>
-                    </div>
-                </div>
-                <div class="pricing-faq__item">
-                    <div class="pricing-faq__head">
-                        Is product support included in the price?
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 8.25562H18.66C19.0154 8.25562 19.3562 8.3968 19.6075 8.6481C19.8588 8.89941 20 9.24025 20 9.59565V12.1685H1.34003C0.984634 12.1685 0.643791 12.0273 0.392486 11.776C0.141181 11.5247 0 11.1839 0 10.8285V8.25562Z"
-                                fill="#815DC1" />
-                            <path
-                                d="M11.6875 0L11.6875 18.66C11.6875 19.0154 11.5463 19.3562 11.295 19.6075C11.0437 19.8588 10.7029 20 10.3475 20L7.7746 20L7.77461 1.34003C7.77461 0.984634 7.91579 0.64379 8.16709 0.392485C8.4184 0.141181 8.75924 -1.27998e-07 9.11464 -1.12463e-07L11.6875 0Z"
-                                fill="#503885" />
-                        </svg>
-                    </div>
-                    <div class="pricing-faq__body">
-                        <p>We love to help! Email and chat support is included in all our plans. Upgrade to Startup level and we include a dedicated account manager. Growth and Scale Up plans include even more comprehensive support with tailored implementation workshops and specialised onboarding and training for your team.</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="pricing-partners">
         <div class="container">
-            <span class="pricing-partners__title">Join these brands in maximizing your potential</span>
-            <div class="pricing-partners__wrapper">
-                <div>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-01.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-01.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-01.png" class="lazy" alt="">
-                    </picture>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-02.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-02.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-02.png" class="lazy" alt="">
-                    </picture>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-03.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-03.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-03.png" class="lazy" alt="">
-                    </picture>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-04.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-04.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-04.png" class="lazy" alt="">
-                    </picture>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-05.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-05.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-05.png" class="lazy" alt="">
-                    </picture>
-                </div>
-                <div>
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.webp" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-06.webp"
-                                class="lazy-web" type="image/webp">
-                        <source srcset="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-06.png"
-                                class="lazy-web" type="image/png">
-                        <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo get_template_directory_uri() ?>/images/partners/brand-06.png" class="lazy" alt="">
-                    </picture>
-                </div>
-            </div>
-            <div class="pricing-partners__subscribe">
-                <div class="pricing-partners__subscribe-txt">Supplier? Register here to connect to our <br>extensive brand network.</div>
-                <div class="pricing-partners__subscribe-form">
-                    <form>
-                        <input type="text" name="email" placeholder="Your e-mail">
-                        <button type="submit" class="btn">Confirm</button>
-                    </form>
-                </div>
-            </div>
+            <?php do_shortcode('[brands]'); ?>
+            <?php do_shortcode('[subscribe]'); ?>
         </div>
     </div>
 </main>
