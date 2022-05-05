@@ -83,33 +83,8 @@ get_header(); ?>
     </div>
     <div class="pricing-partners">
         <div class="container">
-            <span class="pricing-partners__title"><?php the_field( 'brands_title' ); ?></span>
-            <?php $brands = get_field( 'about_brands' ); ?>
-            <?php if( ! empty( $brands ) ): ?>
-            <div class="pricing-partners__wrapper">
-                <?php foreach( $brands as $brand ): ?>
-                    <div>
-                        <picture>
-                            <!--<source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.webp" data-original="<?php /*echo get_template_directory_uri() */?>/images/partners/brand-01.webp"
-                                    class="lazy-web" type="image/webp">
-                            <source srcset="<?php /*echo get_template_directory_uri() */?>/images/pixel.png" data-original="<?php /*echo get_template_directory_uri() */?>/images/partners/brand-01.png"
-                                    class="lazy-web" type="image/png">-->
-                            <img src="<?php echo get_template_directory_uri() ?>/images/pixel.png" data-original="<?php echo $brand['url']; ?>" class="lazy" alt="">
-                        </picture>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-            <?php endif; ?>
-            <div class="pricing-partners__subscribe">
-                <div class="pricing-partners__subscribe-txt"><?php the_field( 'register_text' ); ?></div>
-                <div class="pricing-partners__subscribe-form">
-                    <form class="ajax_form" action="">
-                        <input class="hidden" type="text" name="request" data-title="Request" value="Subscribe">
-                        <input type="text" name="email" data-title="Email" placeholder="Your e-mail" data-validate-email="Wrong email" data-validate-required="Required">
-                        <button type="submit" class="btn">Confirm</button>
-                    </form>
-                </div>
-            </div>
+            <?php do_shortcode('[brands]'); ?>
+            <?php do_shortcode('[subscribe]'); ?>
         </div>
     </div>
 </main>
