@@ -363,11 +363,11 @@ $(function () {
                     finish_val1 = slider1.result.from,
                     finish_val2 = slider2.result.from;
                 //console.log(finish_val1, finish_val2);
-                if (finish_val1 > 83 && finish_val2 > 400) {
+                if (finish_val1 > 83 || finish_val2 > 400) {
                     $('.pricing-plan.plan4').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
-                } else if (finish_val1 > 9 && finish_val2 > 100) {
+                } else if (finish_val1 > 9 || finish_val2 > 100) {
                     $('.pricing-plan.plan3').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
-                } else if (finish_val1 > 4 && finish_val2 > 10) {
+                } else if (finish_val1 > 4 || finish_val2 > 10) {
                     $('.pricing-plan.plan2').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
                 } else {
                     $('.pricing-plan.plan1').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
@@ -409,11 +409,11 @@ $(function () {
                     finish_val1 = slider1.result.from,
                     finish_val2 = slider2.result.from;
                 //console.log(finish_val1, finish_val2);
-                if (finish_val1 > 83 && finish_val2 > 400) {
+                if (finish_val1 > 83 || finish_val2 > 400) {
                     $('.pricing-plan.plan4').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
-                } else if (finish_val1 > 9 && finish_val2 > 100) {
+                } else if (finish_val1 > 9 || finish_val2 > 100) {
                     $('.pricing-plan.plan3').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
-                } else if (finish_val1 > 4 && finish_val2 > 10) {
+                } else if (finish_val1 > 4 || finish_val2 > 10) {
                     $('.pricing-plan.plan2').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
                 } else {
                     $('.pricing-plan.plan1').addClass('active').parent().siblings().find('.pricing-plan').removeClass('active');
@@ -1203,6 +1203,14 @@ $(function () {
 
     if($('.pricing-popup-page').length){
         swal("Thank you", "We’ll be in touch with an update shortly.", "success");
+    }
+
+    // idea slider
+
+    if ($('.idea-slider-path').length) {
+        $(window).on('resize orientationChange', function () {
+            $('.idea-slider-path').slick('setPosition');
+        });
     }
 });
 

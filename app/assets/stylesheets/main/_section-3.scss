@@ -44,6 +44,11 @@
 .idea-slider-path {
   position: relative;
   margin-bottom: 32px;
+  .slick-track{
+    @media (min-width: 992px) {
+      transform: none !important;
+    }
+  }
   &::after {
     content: "";
     position: absolute;
